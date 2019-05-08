@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="">
+    <!-- title -->
+
+
+
+
+<!-- keywords -->
+
+
+
+
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="author" content="大白兔奶糖">
+    <meta name="renderer" content="webkit">
+    <meta name="copyright" content="大白兔奶糖">
+    
+    <meta name="keywords" content="hexo,hexo-theme,hexo-blog">
+    
+    <meta name="description" content>
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Web前端学习 —— CSS · Chris Studio</title>
+    
+    <link rel="preload" href="/css/style.css?v=20180824" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="stylesheet" href="/css/mobile.css?v=20180824" media="(max-width: 980px)">
+    
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    
+    <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+/* This file is meant as a standalone workflow for
+- testing support for link[rel=preload]
+- enabling async CSS loading in browsers that do not support rel=preload
+- applying rel preload css once loaded, whether supported or not.
+*/ -->
+<script>
+(function( w ){
+	"use strict";
+	// rel=preload support test
+	if( !w.loadCSS ){
+		w.loadCSS = function(){};
+	}
+	// define on the loadCSS obj
+	var rp = loadCSS.relpreload = {};
+	// rel=preload feature support test
+	// runs once and returns a function for compat purposes
+	rp.support = (function(){
+		var ret;
+		try {
+			ret = w.document.createElement( "link" ).relList.supports( "preload" );
+		} catch (e) {
+			ret = false;
+		}
+		return function(){
+			return ret;
+		};
+	})();
+
+	// if preload isn't supported, get an asynchronous load by using a non-matching media attribute
+	// then change that media back to its intended value on load
+	rp.bindMediaToggle = function( link ){
+		// remember existing media attr for ultimate state, or default to 'all'
+		var finalMedia = link.media || "all";
+
+		function enableStylesheet(){
+			link.media = finalMedia;
+		}
+
+		// bind load handlers to enable media
+		if( link.addEventListener ){
+			link.addEventListener( "load", enableStylesheet );
+		} else if( link.attachEvent ){
+			link.attachEvent( "onload", enableStylesheet );
+		}
+
+		// Set rel and non-applicable media type to start an async request
+		// note: timeout allows this to happen async to let rendering continue in IE
+		setTimeout(function(){
+			link.rel = "stylesheet";
+			link.media = "only x";
+		});
+		// also enable media after 3 seconds,
+		// which will catch very old browsers (android 2.x, old firefox) that don't support onload on link
+		setTimeout( enableStylesheet, 3000 );
+	};
+
+	// loop through link elements in DOM
+	rp.poly = function(){
+		// double check this to prevent external calls from running
+		if( rp.support() ){
+			return;
+		}
+		var links = w.document.getElementsByTagName( "link" );
+		for( var i = 0; i < links.length; i++ ){
+			var link = links[ i ];
+			// qualify links to those with rel=preload and as=style attrs
+			if( link.rel === "preload" && link.getAttribute( "as" ) === "style" && !link.getAttribute( "data-loadcss" ) ){
+				// prevent rerunning on link
+				link.setAttribute( "data-loadcss", true );
+				// bind listeners to toggle media back
+				rp.bindMediaToggle( link );
+			}
+		}
+	};
+
+	// if unsupported, run the polyfill
+	if( !rp.support() ){
+		// run once at least
+		rp.poly();
+
+		// rerun poly on an interval until onload
+		var run = w.setInterval( rp.poly, 500 );
+		if( w.addEventListener ){
+			w.addEventListener( "load", function(){
+				rp.poly();
+				w.clearInterval( run );
+			} );
+		} else if( w.attachEvent ){
+			w.attachEvent( "onload", function(){
+				rp.poly();
+				w.clearInterval( run );
+			} );
+		}
+	}
+
+
+	// commonjs
+	if( typeof exports !== "undefined" ){
+		exports.loadCSS = loadCSS;
+	}
+	else {
+		w.loadCSS = loadCSS;
+	}
+}( typeof global !== "undefined" ? global : this ) );
+</script>
+
+    <link rel="icon" href="/assets/favicon.ico">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js" as="script">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" as="script">
+    <link rel="preload" href="/scripts/main.js" as="script">
+    <link rel="preload" as="font" href="/font/Oswald-Regular.ttf" crossorigin>
+    <link rel="preload" as="font" href="https://at.alicdn.com/t/font_327081_1dta1rlogw17zaor.woff" crossorigin>
+    
+    <!-- fancybox -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" defer></script>
+    <!-- 百度统计  -->
+    
+    <!-- 谷歌统计  -->
+    
+</head>
+
+    
+        <body class="post-body">
+    
+    
+<header class="header">
+
+    <div class="read-progress"></div>
+    <div class="header-sidebar-menu">&#xe775;</div>
+    <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/">Chris Blog</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">Web前端学习 —— CSS</a>
+            </div>
+    </div>
+    
+    <a class="home-link" href="/">Chris Blog</a>
+</header>
+    <div class="wrapper">
+        <div class="site-intro" style="
+
+
+
+
+
+
+
+height:50vh;
+">
+    
+    <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
+            
+    <div class="site-intro-placeholder"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/post-bg.jpg)"></div>
+    <div class="site-intro-meta">
+        <!-- 标题  -->
+        <h1 class="intro-title">
+            <!-- 主页  -->
+            
+            Web前端学习 —— CSS
+            <!-- 404 -->
+            
+        </h1>
+        <!-- 副标题 -->
+        <p class="intro-subtitle">
+            <!-- 主页副标题  -->
+            
+            
+                不适合人类阅读，非常水的自我笔记
+            
+            <!-- 404 -->
+            
+        </p>
+        <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                    <div class="post-intro-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="Web">Web</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="CSS">CSS</a>
+    
+</div>
+                
+                
+                    <div class="post-intro-read">
+                        <span>字数统计: <span class="post-count word-count">701</span>阅读时长: <span class="post-count reading-time">2 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2018/12/08</span>
+                    
+                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                        <span class="iconfont-archer">&#xe602;</span>
+                        <span id="busuanzi_value_page_pv"></span>
+                    </span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
+        
+    </div>
+</div>
+                
+        <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
+        <div class="container container-unloaded">
+            <main class="main post-page">
+    <article class="article-entry">
+        <h3 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h3><blockquote>
+<p>Cascading Style Sheets 层叠式样式表</p>
+</blockquote>
+<ul>
+<li><h4 id="CSS-语法"><a href="#CSS-语法" class="headerlink" title="CSS 语法"></a>CSS 语法</h4><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">p</span>&#123; <span class="comment">/*&lt;‑‑‑‑­­‑‑‑‑ 选择器*/</span></span><br><span class="line">  <span class="attribute">font-size</span>:<span class="number">12px</span>;   <span class="comment">/*字号*/</span></span><br><span class="line">  <span class="attribute">color</span>:blue;       <span class="comment">/*文字颜色*/</span></span><br><span class="line">  <span class="attribute">font-weight</span>:bold; <span class="comment">/*加粗*/</span></span><br><span class="line">  ...</span><br><span class="line">  <span class="comment">/*属性名：属性值*/</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<ul>
+<li><h4 id="CSS-添加方法"><a href="#CSS-添加方法" class="headerlink" title="CSS 添加方法"></a>CSS 添加方法</h4><ol>
+<li><strong>行内样式</strong><br> <code>&lt;p style&gt; 行内有效</code></li>
+<li><strong>内嵌样式</strong><br> <code>用&lt;style&gt;标签添加在&lt;head&gt;标签中,这个html文件中有效</code></li>
+<li><p><strong>单独文件</strong><br> 外部式样式表文件 style.css<br> 在网页文件中添加样式的方法 ==&gt; 在head标签中添加 <code>link rel=&quot;stylesheet&quot; href=&quot;css/style.css&quot;</code>   </p>
+<blockquote>
+<p> 在sublime中可用link:css来进行扩展</p>
+</blockquote>
+</li>
+<li><p><strong>优先级</strong></p>
+<ul>
+<li>多重样式可以层叠，可以覆盖</li>
+<li>样式优先级按照 <strong>就近原则</strong> :<br><strong>行内样式&gt;内嵌样式&gt;链接样式&gt;</strong> 浏览器默认样式</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+<hr>
+<ul>
+<li><h4 id="CSS选择器"><a href="#CSS选择器" class="headerlink" title="CSS选择器"></a>CSS选择器</h4><ul>
+<li><p><strong>标签选择器</strong><br>  选择器名字为标签名字<br>  <br>  </p>
+</li>
+<li><p><strong>类别选择器</strong><br>  选择器名为“.”开头，引用是用class指定类别</p>
+  <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;style type="text/css"</span><br><span class="line"><span class="selector-tag">p</span>    &#123;<span class="attribute">font-size</span>: <span class="number">12px</span>;&#125;</span><br><span class="line"><span class="selector-class">.one</span> &#123;<span class="attribute">font-size</span>: <span class="number">18px</span>;&#125;</span><br><span class="line"><span class="selector-class">.two</span> &#123;<span class="attribute">font-size</span>: <span class="number">24px</span>&#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+  <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"one"</span>&gt;</span>类别1<span class="tag">&lt;/<span class="name">p</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"two"</span>&gt;</span>类别2<span class="tag">&lt;/<span class="name">p</span>&gt;</span>    </span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>  <br></p>
+</li>
+<li><p><strong>ID 选择器</strong><br>选择器名为 “# “ 号开头,使用时用id属性引用</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;style type="text/css"</span><br><span class="line"><span class="selector-id">#one</span> &#123;<span class="attribute">font-size</span>: <span class="number">18px</span>;&#125;</span><br><span class="line"><span class="selector-id">#two</span> &#123;<span class="attribute">font-size</span>: <span class="number">24px</span>&#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">id</span>=<span class="string">"one"</span>&gt;</span>类别1<span class="tag">&lt;/<span class="name">p</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">id</span>=<span class="string">"two"</span>&gt;</span>类别2<span class="tag">&lt;/<span class="name">p</span>&gt;</span>    </span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><br><br><strong>class选择器与id选择器的区别：</strong><br>ID选择器要在当前html文件中唯一的使用一次<br>而class选择器定义的样式可以多次被引用,作用于多个网页元素上面<br><br></p>
+</li>
+<li><p><strong>嵌套声明</strong>  <code>p span</code></p>
+</li>
+<li><strong>集体声明</strong>  <code>h1,p</code></li>
+<li><strong>全局声明</strong>  <code>*</code></li>
+</ul>
+</li>
+</ul>
+<hr>
+<ul>
+<li><h4 id="CSS样式"><a href="#CSS样式" class="headerlink" title="CSS样式"></a>CSS样式</h4><h4 id="1-文本与文字样式"><a href="#1-文本与文字样式" class="headerlink" title="1. 文本与文字样式"></a>1. <strong>文本与文字样式</strong></h4><ul>
+<li><p><strong>单位</strong></p>
+<ul>
+<li>px : 像素</li>
+<li>em : 1em – 一个字符<br>   自动适应用户所使用的字体</li>
+<li>%  : 百分比</li>
+</ul>
+</li>
+<li><p><strong>颜色</strong>         </p>
+</li>
+<li><p><strong>文本样式</strong></p>
+<ul>
+<li>文本垂直居中: 设置  height = line-height     </li>
+<li>文本水平居中: 设置 <code>text-align: center;</code>    </li>
+<li>去掉超链接下划线: 使用 text-decoration: none;</li>
+</ul>
+<p><br></p>
+</li>
+</ul>
+<h4 id="2-背景与超链接"><a href="#2-背景与超链接" class="headerlink" title="2. 背景与超链接"></a>2. <strong>背景与超链接</strong></h4><ul>
+<li><p><strong>background</strong>:   </p>
+<ul>
+<li>background-color</li>
+<li>background-image</li>
+<li>background-repeat</li>
+</ul>
+</li>
+<li><p><strong>链接的四种状态</strong>     </p>
+<ul>
+<li>a:link      普通的、未被访问的链接   </li>
+<li>a:visited   被访问过的链接     </li>
+<li>a:hover     鼠标指针位于链接上方悬停    </li>
+<li>a:active    链接被点击到的时刻   </li>
+</ul>
+<p>鼠标悬停放大字体  a:hover{font-size:120%;}<br> <br></p>
+</li>
+</ul>
+<h4 id="3-列表和表格"><a href="#3-列表和表格" class="headerlink" title="3. 列表和表格"></a>3. <strong>列表和表格</strong></h4><ul>
+<li><p><strong>列表</strong>    </p>
+<blockquote>
+<p>有序列表ol和无序列表ul公用样式   </p>
+</blockquote>
+<ul>
+<li>list-style    所有用于列表的属性设置于一个声明中</li>
+<li>list-style-image    为列表项标志设置图像  (url”…”)</li>
+<li>list-style-position   标志的位置 inside/outside    </li>
+<li>list-style-type     <a href="/img/post_img/list-style-type.png">标志的类型</a></li>
+</ul>
+</li>
+<li><p><strong>表格</strong></p>
+<ul>
+<li>border    边框    </li>
+<li>width     宽   </li>
+<li>height    高     </li>
+<li>border-collapse   把表格显示为单线条边框   </li>
+<li><a href="http://www.w3school.com.cn/cssref/selector_nth-child.asp" target="_blank" rel="noopener">奇偶选择器</a>可用来设置奇偶行颜色     <code>:nth-child(odd/even)</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+    </article>
+    <!-- license  -->
+    
+        <div class="license-wrapper">
+            <p>原文作者：<a href="tanchris.cc">大白兔奶糖</a>
+            </p><p>link：<a href="tanchris.cc/2018/12/08/2018-12-05-Web前端学习之CSS/">tanchris.cc/2018/12/08/2018-12-05-Web前端学习之CSS/</a>
+            </p><p>publish：<a href="tanchris.cc/2018/12/08/2018-12-05-Web前端学习之CSS/">December 8th 2018, 12:00:00 am</a>
+            </p><p>update：<a href="tanchris.cc/2018/12/08/2018-12-05-Web前端学习之CSS/">May 8th 2019, 8:13:15 pm</a>
+            </p><p>copyright：本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">本文章仅供学习使用</a>进行许可</p>
+        </div>
+    
+    <!-- paginator  -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+                <div class="nextSlogan">Next Post</div>
+                <a href="/2018/12/17/2018-12-17-二叉树遍历的非递归实现/" title="二叉树遍历的非递归实现">
+                    <div class="nextTitle">二叉树遍历的非递归实现</div>
+                </a>
+            
+        </li>
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href="/2018/12/03/2018-12-03-Web前端学习之HTML/" title="Web前端学习 —— HTML">
+                    <div class="prevTitle">Web前端学习 —— HTML</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    
+    
+    
+    <!-- partial('_partial/comment/changyan') -->
+    
+    
+    
+    <!-- 评论 -->
+</main>
+
+            <!-- profile -->
+            
+        </div>
+        <footer class="footer footer-unloaded">
+    <!-- social  -->
+    
+    <div class="social">
+        
+    
+        
+            
+                <a href="mailto:2903561172@qq.com" class="iconfont-archer email" title="email"></a>
+            
+        
+    
+        
+            
+                <a href="//github.com/TAN-CHRIS" class="iconfont-archer github" target="_blank" title="github"></a>
+            
+        
+    
+        
+            
+                <span class="iconfont-archer wechat" title="wechat">
+                  
+                  <img class="profile-qr" src="/assets/example_qr.png">
+                </span>
+            
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+    </div>
+    
+    <!-- powered by Hexo  -->
+    <div class="copyright">
+        <span id="hexo-power">Powered by <a href="https://hexo.io/" target="_blank">Hexo</a></span><span class="iconfont-archer power">&#xe635;</span><span id="theme-info">theme <a href="https://github.com/fi3ework/hexo-theme-archer" target="_blank">Archer</a></span>
+    </div>
+    <!-- 不蒜子  -->
+    
+    <div class="busuanzi-container">
+    
+     
+    <span id="busuanzi_container_site_pv">PV: <span id="busuanzi_value_site_pv"></span> :)</span>
+    
+    </div>
+    
+</footer>
+    </div>
+    <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:50vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#CSS"><span class="toc-number">1.</span> <span class="toc-text">CSS</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#CSS-语法"><span class="toc-number">1.1.</span> <span class="toc-text">CSS 语法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#CSS-添加方法"><span class="toc-number">1.2.</span> <span class="toc-text">CSS 添加方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#CSS选择器"><span class="toc-number">1.3.</span> <span class="toc-text">CSS选择器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#CSS样式"><span class="toc-number">1.4.</span> <span class="toc-text">CSS样式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-文本与文字样式"><span class="toc-number">1.5.</span> <span class="toc-text">1. 文本与文字样式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-背景与超链接"><span class="toc-number">1.6.</span> <span class="toc-text">2. 背景与超链接</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-列表和表格"><span class="toc-number">1.7.</span> <span class="toc-text">3. 列表和表格</span></a></li></ol></li></ol>
+    </div>
+    
+    <div class="back-top iconfont-archer">&#xe639;</div>
+    
+    <script>
+    var siteMeta = {
+        root: "/",
+        author: "大白兔奶糖"
+    }
+</script>
+    <!-- CDN failover -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+    <script type="text/javascript">
+        if (typeof window.$ === 'undefined')
+        {
+            console.warn('jquery load from jsdelivr failed, will load local script')
+            document.write('<script src="/lib/jquery.min.js">\x3C/script>')
+        }
+    </script>
+    <script src="/scripts/main.js"></script>
+    <!-- algolia -->
+    
+    <!-- busuanzi  -->
+    
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+    <!-- CNZZ  -->
+    
+    </div>
+    <!-- async load share.js -->
+    
+        <script src="/scripts/share.js" async></script>    
+     
+    </body>
+</html>
+
+
