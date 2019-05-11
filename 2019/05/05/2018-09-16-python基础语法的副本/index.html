@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+<html lang="">
+    <!-- title -->
+
+
+
+
+<!-- keywords -->
+
+
+
+
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="author" content="大白兔奶糖">
+    <meta name="renderer" content="webkit">
+    <meta name="copyright" content="大白兔奶糖">
+    
+    <meta name="keywords" content="hexo,hexo-theme,hexo-blog">
+    
+    <meta name="description" content>
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Pyhton 基础语法 · Rabbit</title>
+    <style type="text/css">
+    @font-face {
+        font-family: 'Oswald-Regular';
+        src: url("/font/Oswald-Regular.ttf");
+    }
+
+    body {
+        margin: 0;
+    }
+
+    header,
+    footer,
+    .back-top,
+    .sidebar,
+    .container,
+    .site-intro-meta,
+    .toc-wrapper {
+        display: none;
+    }
+
+    .site-intro {
+        position: relative;
+        z-index: 3;
+        width: 100%;
+        /* height: 50vh; */
+        overflow: hidden;
+    }
+
+    .site-intro-placeholder {
+        position: absolute;
+        z-index: -2;
+        top: 0;
+        left: 0;
+        width: calc(100% + 300px);
+        height: 100%;
+        background: repeating-linear-gradient(-45deg, #444 0, #444 80px, #333 80px, #333 160px);
+        background-position: center center;
+        transform: translate3d(-226px, 0, 0);
+        animation: gradient-move 2.5s ease-out 0s infinite;
+    }
+
+    @keyframes gradient-move {
+        0% {
+            transform: translate3d(-226px, 0, 0);
+        }
+        100% {
+            transform: translate3d(0, 0, 0);
+        }
+    }
+
+</style>
+
+    <link rel="preload" href="/css/style.css?v=20180824" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="stylesheet" href="/css/mobile.css?v=20180824" media="(max-width: 980px)">
+    
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    
+    <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+/* This file is meant as a standalone workflow for
+- testing support for link[rel=preload]
+- enabling async CSS loading in browsers that do not support rel=preload
+- applying rel preload css once loaded, whether supported or not.
+*/ -->
+<script>
+(function( w ){
+	"use strict";
+	// rel=preload support test
+	if( !w.loadCSS ){
+		w.loadCSS = function(){};
+	}
+	// define on the loadCSS obj
+	var rp = loadCSS.relpreload = {};
+	// rel=preload feature support test
+	// runs once and returns a function for compat purposes
+	rp.support = (function(){
+		var ret;
+		try {
+			ret = w.document.createElement( "link" ).relList.supports( "preload" );
+		} catch (e) {
+			ret = false;
+		}
+		return function(){
+			return ret;
+		};
+	})();
+
+	// if preload isn't supported, get an asynchronous load by using a non-matching media attribute
+	// then change that media back to its intended value on load
+	rp.bindMediaToggle = function( link ){
+		// remember existing media attr for ultimate state, or default to 'all'
+		var finalMedia = link.media || "all";
+
+		function enableStylesheet(){
+			link.media = finalMedia;
+		}
+
+		// bind load handlers to enable media
+		if( link.addEventListener ){
+			link.addEventListener( "load", enableStylesheet );
+		} else if( link.attachEvent ){
+			link.attachEvent( "onload", enableStylesheet );
+		}
+
+		// Set rel and non-applicable media type to start an async request
+		// note: timeout allows this to happen async to let rendering continue in IE
+		setTimeout(function(){
+			link.rel = "stylesheet";
+			link.media = "only x";
+		});
+		// also enable media after 3 seconds,
+		// which will catch very old browsers (android 2.x, old firefox) that don't support onload on link
+		setTimeout( enableStylesheet, 3000 );
+	};
+
+	// loop through link elements in DOM
+	rp.poly = function(){
+		// double check this to prevent external calls from running
+		if( rp.support() ){
+			return;
+		}
+		var links = w.document.getElementsByTagName( "link" );
+		for( var i = 0; i < links.length; i++ ){
+			var link = links[ i ];
+			// qualify links to those with rel=preload and as=style attrs
+			if( link.rel === "preload" && link.getAttribute( "as" ) === "style" && !link.getAttribute( "data-loadcss" ) ){
+				// prevent rerunning on link
+				link.setAttribute( "data-loadcss", true );
+				// bind listeners to toggle media back
+				rp.bindMediaToggle( link );
+			}
+		}
+	};
+
+	// if unsupported, run the polyfill
+	if( !rp.support() ){
+		// run once at least
+		rp.poly();
+
+		// rerun poly on an interval until onload
+		var run = w.setInterval( rp.poly, 500 );
+		if( w.addEventListener ){
+			w.addEventListener( "load", function(){
+				rp.poly();
+				w.clearInterval( run );
+			} );
+		} else if( w.attachEvent ){
+			w.attachEvent( "onload", function(){
+				rp.poly();
+				w.clearInterval( run );
+			} );
+		}
+	}
+
+
+	// commonjs
+	if( typeof exports !== "undefined" ){
+		exports.loadCSS = loadCSS;
+	}
+	else {
+		w.loadCSS = loadCSS;
+	}
+}( typeof global !== "undefined" ? global : this ) );
+</script>
+
+    <link rel="icon" href="/assets/favicon.ico">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js" as="script">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" as="script">
+    <link rel="preload" href="/scripts/main.js" as="script">
+    <link rel="preload" as="font" href="/font/Oswald-Regular.ttf" crossorigin>
+    <link rel="preload" as="font" href="https://at.alicdn.com/t/font_327081_1dta1rlogw17zaor.woff" crossorigin>
+    
+        <!-- algolia -->
+        <script>
+            
+            var hits = JSON.parse('{"per_page":10}')
+            var labels = JSON.parse('{"input_placeholder":"Search for Posts","hits_empty":"We did not find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}')
+
+            var algolia = {
+                applicationID: '7B3IRWC2H5',
+                apiKey: '40a286b3be16875ac1ae559d6727f29d',
+                indexName: 'myindex',
+                hits: hits,
+                labels: labels
+            }
+        </script>
+    
+    <!-- fancybox -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" defer></script>
+    <!-- 百度统计  -->
+    
+    <!-- 谷歌统计  -->
+    
+</head>
+
+    
+        <body class="post-body">
+    
+    
+<header class="header">
+
+    <div class="read-progress"></div>
+    <div class="header-sidebar-menu">&#xe775;</div>
+    <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/">Rabbit&#39;s Blog</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">Pyhton 基础语法</a>
+            </div>
+    </div>
+    
+    <a class="home-link" href="/">Rabbit's Blog</a>
+</header>
+    <div class="wrapper">
+        <div class="site-intro" style="
+
+
+
+
+
+
+
+height:50vh;
+">
+    
+    <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
+            
+    <div class="site-intro-placeholder"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/post-bg.jpg)"></div>
+    <div class="site-intro-meta">
+        <!-- 标题  -->
+        <h1 class="intro-title">
+            <!-- 主页  -->
+            
+            Pyhton 基础语法
+            <!-- 404 -->
+            
+        </h1>
+        <!-- 副标题 -->
+        <p class="intro-subtitle">
+            <!-- 主页副标题  -->
+            
+            
+            <!-- 404 -->
+            
+        </p>
+        <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                
+                    <div class="post-intro-read">
+                        <span>字数统计: <span class="post-count word-count">826</span>阅读时长: <span class="post-count reading-time">3 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2019/05/05</span>
+                    
+                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                        <span class="iconfont-archer">&#xe602;</span>
+                        <span id="busuanzi_value_page_pv"></span>
+                    </span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
+        
+    </div>
+</div>
+        <script>
+ 
+  // get user agent
+  var browser = {
+    versions: function () {
+      var u = window.navigator.userAgent;
+      return {
+        userAgent: u,
+        trident: u.indexOf('Trident') > -1, //IE内核
+        presto: u.indexOf('Presto') > -1, //opera内核
+        webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+        gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
+        mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
+        ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+        android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器
+        iPhone: u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1, //是否为iPhone或者安卓QQ浏览器
+        iPad: u.indexOf('iPad') > -1, //是否为iPad
+        webApp: u.indexOf('Safari') == -1, //是否为web应用程序，没有头部与底部
+        weixin: u.indexOf('MicroMessenger') == -1, //是否为微信浏览器
+        uc: u.indexOf('UCBrowser') > -1 //是否为android下的UC浏览器
+      };
+    }()
+  }
+  console.log("userAgent:" + browser.versions.userAgent);
+
+  // callback
+  function fontLoaded() {
+    console.log('font loaded');
+    if (document.getElementsByClassName('site-intro-meta')) {
+      document.getElementsByClassName('intro-title')[0].classList.add('intro-fade-in');
+      document.getElementsByClassName('intro-subtitle')[0].classList.add('intro-fade-in');
+      var postIntros = document.getElementsByClassName('post-intros')[0]
+      if (postIntros) {
+        postIntros.classList.add('post-fade-in');
+      }
+    }
+  }
+
+  // UC不支持跨域，所以直接显示
+  function asyncCb(){
+    if (browser.versions.uc) {
+      console.log("UCBrowser");
+      fontLoaded();
+    } else {
+      WebFont.load({
+        custom: {
+          families: ['Oswald-Regular']
+        },
+        loading: function () {  //所有字体开始加载
+          // console.log('loading');
+        },
+        active: function () {  //所有字体已渲染
+          fontLoaded();
+        },
+        inactive: function () { //字体预加载失败，无效字体或浏览器不支持加载
+          console.log('inactive: timeout');
+          fontLoaded();
+        },
+        timeout: 5000 // Set the timeout to two seconds
+      });
+    }
+  }
+
+  function asyncErr(){
+    console.warn('script load from CDN failed, will load local script')
+  }
+
+  // load webfont-loader async, and add callback function
+  function async(u, cb, err) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (cb) { o.addEventListener('load', function (e) { cb(null, e); }, false); }
+    if (err) { o.addEventListener('error', function (e) { err(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+
+  var asyncLoadWithFallBack = function(arr, success, reject) {
+      var currReject = function(){
+        reject()
+        arr.shift()
+        if(arr.length)
+          async(arr[0], success, currReject)
+        }
+
+      async(arr[0], success, currReject)
+  }
+
+  asyncLoadWithFallBack([
+    "https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js", 
+    "https://cdn.bootcss.com/webfont/1.6.28/webfontloader.js",
+    "/lib/webfontloader.min.js"
+  ], asyncCb, asyncErr)
+</script>        
+        <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
+        <div class="container container-unloaded">
+            <main class="main post-page">
+    <article class="article-entry">
+        <hr>
+<h2 id="Python-编程基础"><a href="#Python-编程基础" class="headerlink" title="Python 编程基础"></a>Python 编程基础</h2><ul>
+<li><h4 id="Python-程序基本结构"><a href="#Python-程序基本结构" class="headerlink" title="Python 程序基本结构"></a>Python 程序基本结构</h4><ul>
+<li><h5 id="缩进表示代码块"><a href="#缩进表示代码块" class="headerlink" title="缩进表示代码块"></a>缩进表示代码块</h5>同级代码块的缩进量应保持相同</li>
+<li><h5 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h5>单行注释用“#”表示，“#”之后的内容不会被执行。单行注释可以单独占一行，也可以放在语句末尾。<br>多行注释用三个英文的单引号“’’’”或双引号“””””作为注释的开始和结束符号。   </li>
+<li><h5 id="语句续航"><a href="#语句续航" class="headerlink" title="语句续航"></a>语句续航</h5><em>使用续航符号，将一条语句写在多行之中。</em><br>方法一：使用“\”符号<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> x&lt;<span class="number">100</span>\</span><br><span class="line">      <span class="keyword">and</span> x&gt;<span class="number">10</span>:</span><br><span class="line">      y = x*<span class="number">5</span> - <span class="number">1</span></span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">      y = <span class="number">0</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>方法二：使用括号时，括号中的内容可分多行书写，括号中的空白和换行符都会被忽略。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(x&lt;<span class="number">100</span>    <span class="comment">#这是多行语句中的注释</span></span><br><span class="line">      <span class="keyword">and</span> x&gt;<span class="number">10</span>):</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">      y=<span class="number">0</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><h5 id="语句分隔"><a href="#语句分隔" class="headerlink" title="语句分隔"></a>语句分隔</h5><p>python 使用分号分隔语句，从而使多条语句写在一行。例如：<br><code>print(100);print(2+3)</code><br>如果冒号之后只有一条语句，可将语句写在冒号之后。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> x&lt;<span class="number">100</span> <span class="keyword">and</span> x&gt;<span class="number">10</span>: y=x*<span class="number">5</span><span class="number">-1</span></span><br><span class="line"><span class="keyword">else</span>: y=<span class="number">0</span>; print(<span class="string">'x&gt;=10 或 x&lt;=10'</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li><h5 id="关键字大小写"><a href="#关键字大小写" class="headerlink" title="关键字大小写"></a>关键字大小写</h5><p>Python 的关键字和各种自定义标识符在使用时区分大小写（如if,while,for等）。</p>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><h4 id="输入输出"><a href="#输入输出" class="headerlink" title="输入输出"></a>输入输出</h4><ul>
+<li><h5 id="输入：input"><a href="#输入：input" class="headerlink" title="输入：input()"></a>输入：input()</h5>input函数将用户输入以字符串返回。用户按【Enter】键完成输入，之前的字符均作为输入内容。<br>如果需要输入整数或小数，用int或float函数进行转换。</li>
+<li><h5 id="输出：print"><a href="#输出：print" class="headerlink" title="输出：print()"></a>输出：print()</h5><p>print函数基本格式：<br><code>print([obj1,...],[,sep=&#39;&#39;][,end=&#39;\n&#39;][,file.sys.stdout])</code>    </p>
+<ul>
+<li><p><strong>省略所有参数</strong><br>无参数时，print函数输出一个空行</p>
+</li>
+<li><p><strong>输出一个或多个对象</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;print(<span class="number">123</span>)                    <span class="comment">#输出一个对象</span></span><br><span class="line"><span class="number">123</span></span><br><span class="line">&gt;&gt;&gt;print(<span class="number">123</span>,<span class="string">'abc'</span>,<span class="number">45</span>,<span class="string">'book'</span>)    <span class="comment">#输出多个对象</span></span><br><span class="line"><span class="number">123</span>abc45book</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>指定输出分隔符</strong><br>默认分隔符为空格，可用sep参数指定分隔符</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;print(<span class="number">123</span>,<span class="string">'abc'</span>,<span class="number">45</span>,<span class="string">'book'</span>,sep=<span class="string">'/'</span>)</span><br><span class="line"><span class="number">123</span>/abc/<span class="number">45</span>/book</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>指定输出结尾符号</strong><br>默认以回车换行符号作为输出结尾符号。可用end参数输出结尾符号。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;print(<span class="string">'price'</span>);print(<span class="number">100</span>)</span><br><span class="line">price</span><br><span class="line"><span class="number">100</span></span><br><span class="line">&gt;&gt;&gt;print(<span class="string">'price'</span>,end=<span class="string">'='</span>);print(<span class="number">100</span>)</span><br><span class="line">price=<span class="number">100</span></span><br><span class="line">```    </span><br><span class="line"></span><br><span class="line">- **输出到文件**    </span><br><span class="line">默认输出到标准输出流（即sys.stdout）。可用file参数输出到特定文件。例如：</span><br><span class="line">```python</span><br><span class="line">&gt;&gt;&gt;file1=open(<span class="string">'data.txt'</span>,<span class="string">'w'</span>)              <span class="comment">#打开文件</span></span><br><span class="line">&gt;&gt;&gt;print(<span class="number">123</span>,<span class="string">'abc'</span>,<span class="number">45</span>,<span class="string">'book'</span>,file=file1)   <span class="comment">#用file参数指定输出文件</span></span><br><span class="line">&gt;&gt;&gt;file1.close()                           <span class="comment">#关闭文件</span></span><br><span class="line">&gt;&gt;&gt;print(open(<span class="string">'data.txt'</span>.read()))          <span class="comment">#输出从文件中读出的内容</span></span><br><span class="line"><span class="number">123</span> abc <span class="number">45</span> book</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><h4 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h4><ul>
+<li>int 整数</li>
+<li>double 浮点数</li>
+<li>str 字符串</li>
+<li>list 数组</li>
+<li>dict 字典</li>
+<li>tuple 元组</li>
+<li>集合</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="程序流程控制"><a href="#程序流程控制" class="headerlink" title="程序流程控制"></a>程序流程控制</h2><ul>
+<li><h4 id="if-语句"><a href="#if-语句" class="headerlink" title="if 语句"></a>if 语句</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(...):</span><br><span class="line">      ...</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">      ...</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(...):</span><br><span class="line">    ...</span><br><span class="line"><span class="keyword">elif</span>(...):</span><br><span class="line">    ...</span><br><span class="line">.</span><br><span class="line">.</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    ...</span><br></pre></td></tr></table></figure>
+<ul>
+<li><h4 id="for-循环"><a href="#for-循环" class="headerlink" title="for 循环"></a>for 循环</h4></li>
+<li><h4 id="while-循环"><a href="#while-循环" class="headerlink" title="while 循环"></a>while 循环</h4></li>
+</ul>
+<hr>
+<h2 id="函数与模块"><a href="#函数与模块" class="headerlink" title="函数与模块"></a>函数与模块</h2><ul>
+<li><h4 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h4></li>
+<li><h4 id="变量作用域"><a href="#变量作用域" class="headerlink" title="变量作用域"></a>变量作用域</h4></li>
+<li><h4 id="模块"><a href="#模块" class="headerlink" title="模块"></a>模块</h4><ul>
+<li><h5 id="random模块"><a href="#random模块" class="headerlink" title="random模块"></a>random模块</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">random()                用于生成一个<span class="number">0</span>到<span class="number">1</span>的随机浮点数：<span class="number">0</span>&lt;=n&lt;<span class="number">1.0</span></span><br><span class="line">uniform(a,b)            用于生成一个指定范围内的随机浮点数：a&lt;n&lt;b</span><br><span class="line">randint(a,b)            用于生成啊a到b之间的一个随机整数（a&lt;=b）</span><br><span class="line">randrange([start], stop[,step])    用于生成一个指定基数递增的集合中随机取一个整数</span><br><span class="line">choice(sequence)        从序列中随机取一个元素，其中，sequence表示一个有序类型，例如：list,string,tuple</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><h4 id="模块包"><a href="#模块包" class="headerlink" title="模块包"></a>模块包</h4></li>
+</ul>
+
+    </article>
+    <!-- license  -->
+    
+        <div class="license-wrapper">
+            <p>原文作者：<a href="tanchris.cc">大白兔奶糖</a>
+            </p><p>link：<a href="tanchris.cc/2019/05/05/2018-09-16-python基础语法的副本/">tanchris.cc/2019/05/05/2018-09-16-python基础语法的副本/</a>
+            </p><p>publish：<a href="tanchris.cc/2019/05/05/2018-09-16-python基础语法的副本/">May 5th 2019, 3:22:57 pm</a>
+            </p><p>update：<a href="tanchris.cc/2019/05/05/2018-09-16-python基础语法的副本/">May 8th 2019, 8:25:10 pm</a>
+            </p><p>copyright：Copyrights © 2019 Tan Chris. All Rights Reserved.</p>
+        </div>
+    
+    <!-- paginator  -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+                <div class="nextSlogan">Next Post</div>
+                <a href="/2019/05/08/hello-world/" title="转战Hexo">
+                    <div class="nextTitle">转战Hexo</div>
+                </a>
+            
+        </li>
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href="/2019/05/05/2019-05-05-Computer Networks/" title="Computer Networks : A System Approach">
+                    <div class="prevTitle">Computer Networks : A System Approach</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
+    
+    
+    <!-- partial('_partial/comment/changyan') -->
+    <!--PC版-->
+
+
+    
+    
+
+    <!-- 评论 -->
+</main>
+
+            <!-- profile -->
+            
+        </div>
+        <footer class="footer footer-unloaded">
+    <!-- social  -->
+    
+    <div class="social">
+        
+    
+        
+            
+                <a href="mailto:2903561172@qq.com" class="iconfont-archer email" title="email"></a>
+            
+        
+    
+        
+            
+                <a href="//github.com/TAN-CHRIS" class="iconfont-archer github" target="_blank" title="github"></a>
+            
+        
+    
+        
+    
+        
+    
+        
+    
+        
+            
+                <a href="https://www.weibo.com/u/3248222380" class="iconfont-archer weibo" target="_blank" title="weibo"></a>
+            
+        
+    
+        
+            
+                <a href="https://www.zhihu.com/people/gei-ta-yiping-bing-kuo-luo" class="iconfont-archer zhihu" target="_blank" title="zhihu"></a>
+            
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+    </div>
+    
+    <!-- powered by Hexo  -->
+    <div class="copyright">
+        <span id="hexo-power">Powered by <a href="https://hexo.io/" target="_blank">Hexo</a></span><span class="iconfont-archer power">&#xe635;</span><span id="theme-info">theme <a href="https://github.com/fi3ework/hexo-theme-archer" target="_blank">Archer</a></span>
+
+    </div>
+    <!-- 不蒜子  -->
+    
+    <div class="busuanzi-container">
+    
+    
+    <span id="busuanzi_container_site_pv">PV: <span id="busuanzi_value_site_pv"></span> :)</span>
+    
+    </div>
+    
+</footer>
+
+    </div>
+    <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:50vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Python-编程基础"><span class="toc-number">1.</span> <span class="toc-text">Python 编程基础</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Python-程序基本结构"><span class="toc-number">1.0.1.</span> <span class="toc-text">Python 程序基本结构</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#缩进表示代码块"><span class="toc-number">1.0.1.1.</span> <span class="toc-text">缩进表示代码块</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#注释"><span class="toc-number">1.0.1.2.</span> <span class="toc-text">注释</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#语句续航"><span class="toc-number">1.0.1.3.</span> <span class="toc-text">语句续航</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#语句分隔"><span class="toc-number">1.0.1.4.</span> <span class="toc-text">语句分隔</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#关键字大小写"><span class="toc-number">1.0.1.5.</span> <span class="toc-text">关键字大小写</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#输入输出"><span class="toc-number">1.0.2.</span> <span class="toc-text">输入输出</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#输入：input"><span class="toc-number">1.0.2.1.</span> <span class="toc-text">输入：input()</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#输出：print"><span class="toc-number">1.0.2.2.</span> <span class="toc-text">输出：print()</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#数据类型"><span class="toc-number">1.0.3.</span> <span class="toc-text">数据类型</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#程序流程控制"><span class="toc-number">2.</span> <span class="toc-text">程序流程控制</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#if-语句"><span class="toc-number">2.0.1.</span> <span class="toc-text">if 语句</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#for-循环"><span class="toc-number">2.0.2.</span> <span class="toc-text">for 循环</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#while-循环"><span class="toc-number">2.0.3.</span> <span class="toc-text">while 循环</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#函数与模块"><span class="toc-number">3.</span> <span class="toc-text">函数与模块</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#函数"><span class="toc-number">3.0.1.</span> <span class="toc-text">函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#变量作用域"><span class="toc-number">3.0.2.</span> <span class="toc-text">变量作用域</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#模块"><span class="toc-number">3.0.3.</span> <span class="toc-text">模块</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#random模块"><span class="toc-number">3.0.3.1.</span> <span class="toc-text">random模块</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#模块包"><span class="toc-number">3.0.4.</span> <span class="toc-text">模块包</span></a></li></ol></li></ol></li></ol>
+    </div>
+    
+    <div class="back-top iconfont-archer">&#xe639;</div>
+    <div class="sidebar sidebar-hide">
+    <ul class="sidebar-tabs sidebar-tabs-active-0">
+        <li class="sidebar-tab-archives"><span class="iconfont-archer">&#xe67d;</span><span class="tab-name">Archive</span></li>
+        <li class="sidebar-tab-tags"><span class="iconfont-archer">&#xe61b;</span><span class="tab-name">Tag</span></li>
+        <li class="sidebar-tab-categories"><span class="iconfont-archer">&#xe666;</span><span class="tab-name">Cate</span></li>
+    </ul>
+    <div class="sidebar-content sidebar-content-show-archive">
+          <div class="sidebar-panel-archives">
+    <!-- 在ejs中将archive按照时间排序 -->
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="total-and-search">
+        <div class="total-archive">
+        Total : 11
+        </div>
+        <!-- search  -->
+        
+            <div class="site-search popup-trigger">
+                <span class="iconfont-archer search-icon">&#xe627;</span>
+            </div>
+        
+    </div>
+    
+    <div class="post-archive">
+    
+    
+    
+    
+    <div class="archive-year"> 2019 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/09</span><a class="archive-post-title" href="/2019/05/09/Linux文件操作基本指令/">ssh连接远程服务器的基本操作指令</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/08</span><a class="archive-post-title" href="/2019/05/08/hello-world/">转战Hexo</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/05</span><a class="archive-post-title" href="/2019/05/05/2018-09-16-python基础语法的副本/">Pyhton 基础语法</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/05</span><a class="archive-post-title" href="/2019/05/05/2019-05-05-Computer Networks/">Computer Networks : A System Approach</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> 2018 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/17</span><a class="archive-post-title" href="/2018/12/17/2018-12-17-二叉树遍历的非递归实现/">二叉树遍历的非递归实现</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/08</span><a class="archive-post-title" href="/2018/12/08/2018-12-05-Web前端学习之CSS/">Web前端学习 —— CSS</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/03</span><a class="archive-post-title" href="/2018/12/03/2018-12-03-Web前端学习之HTML/">Web前端学习 —— HTML</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/02</span><a class="archive-post-title" href="/2018/12/02/2018-12-02-《人不彪悍枉少年》/">人不彪悍枉少年</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/19</span><a class="archive-post-title" href="/2018/11/19/2018-11-19-浅学android studio/">浅学android studio</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/21</span><a class="archive-post-title" href="/2018/10/21/2018-10-21-符点数的比较/">浮点数的比较</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/01</span><a class="archive-post-title" href="/2018/07/01/2018-09-02-hello-world/">Markdown</a>
+        </li>
+    
+    </ul></div>
+  </div>
+        <div class="sidebar-panel-tags">
+    <div class="sidebar-tags-name">
+    
+        <span class="sidebar-tag-name" data-tags="markdown"><span class="iconfont-archer">&#xe606;</span>markdown</span>
+    
+        <span class="sidebar-tag-name" data-tags="算法笔记"><span class="iconfont-archer">&#xe606;</span>算法笔记</span>
+    
+        <span class="sidebar-tag-name" data-tags="C/C++"><span class="iconfont-archer">&#xe606;</span>C/C++</span>
+    
+        <span class="sidebar-tag-name" data-tags="Web"><span class="iconfont-archer">&#xe606;</span>Web</span>
+    
+        <span class="sidebar-tag-name" data-tags="HTML"><span class="iconfont-archer">&#xe606;</span>HTML</span>
+    
+        <span class="sidebar-tag-name" data-tags="Android"><span class="iconfont-archer">&#xe606;</span>Android</span>
+    
+        <span class="sidebar-tag-name" data-tags="杂啊"><span class="iconfont-archer">&#xe606;</span>杂啊</span>
+    
+        <span class="sidebar-tag-name" data-tags="CSS"><span class="iconfont-archer">&#xe606;</span>CSS</span>
+    
+        <span class="sidebar-tag-name" data-tags="Linux"><span class="iconfont-archer">&#xe606;</span>Linux</span>
+    
+        <span class="sidebar-tag-name" data-tags="ssh"><span class="iconfont-archer">&#xe606;</span>ssh</span>
+    
+        <span class="sidebar-tag-name" data-tags="数据结构"><span class="iconfont-archer">&#xe606;</span>数据结构</span>
+    
+        <span class="sidebar-tag-name" data-tags="计算机网络"><span class="iconfont-archer">&#xe606;</span>计算机网络</span>
+    
+    </div>
+    <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
+    <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
+    缺失模块。<br>
+    1、请确保node版本大于6.2<br>
+    2、在博客根目录（注意不是archer根目录）执行以下命令：<br>
+    <span style="color: #f75357; font-size: 1rem; line-height: 2rem;">npm i hexo-generator-json-content --save</span><br>
+    3、在根目录_config.yml里添加配置：
+    <pre style="color: #787878; font-size: 0.6rem;">
+jsonContent:
+  meta: false
+  pages: false
+  posts:
+    title: true
+    date: true
+    path: true
+    text: false
+    raw: false
+    content: false
+    slug: false
+    updated: false
+    comments: false
+    link: false
+    permalink: false
+    excerpt: false
+    categories: true
+    tags: true</pre>
+    </div> 
+    <div class="sidebar-tags-list"></div>
+</div>
+        <div class="sidebar-panel-categories">
+    <div class="sidebar-categories-name">
+    
+    </div>
+    <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
+    <div class="sidebar-categories-list"></div>
+</div>
+    </div>
+</div> 
+    <script>
+    var siteMeta = {
+        root: "/",
+        author: "大白兔奶糖"
+    }
+</script>
+    <!-- CDN failover -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+    <script type="text/javascript">
+        if (typeof window.$ === 'undefined')
+        {
+            console.warn('jquery load from jsdelivr failed, will load local script')
+            document.write('<script src="/lib/jquery.min.js">\x3C/script>')
+        }
+    </script>
+    <script src="/scripts/main.js"></script>
+    <!-- algolia -->
+    
+        <div class="site-search">
+  <div class="algolia-popup popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="iconfont-archer">&#xe609;</i>
+    </span>
+  </div>
+</div>
+        <script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.8.0/dist/instantsearch.min.js" defer></script>
+        <script src="/scripts/search.js" defer></script>
+    
+    <!-- busuanzi  -->
+    
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+    <!-- CNZZ  -->
+    
+    </div>
+    <!-- async load share.js -->
+    
+        <script src="/scripts/share.js" async></script>    
+     
+    </body>
+</html>
+
+
