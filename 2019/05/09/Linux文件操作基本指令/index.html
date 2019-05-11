@@ -289,7 +289,7 @@ height:50vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">302</span>阅读时长: <span class="post-count reading-time">1 min</span></span>
+                        <span>字数统计: <span class="post-count word-count">303</span>阅读时长: <span class="post-count reading-time">1 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -435,20 +435,20 @@ height:50vh;
 </li>
 <li><p><code>ls</code> 显示当前目录下的文件</p>
 </li>
-<li><p><code>mkdir folder  //folder为创建目录名</code> 创建目录，若目录存在会报错  </p>
-<p><code>rmdir folder</code> 删除空文件</p>
-<p><code>rm -rf folder</code> 删除非空文件夹</p>
+<li><p><code>mkdir folder</code>:  创建目录，若目录存在会报错  </p>
+<p><code>rmdir folder</code>:  删除空文件</p>
+<p><code>rm -rf folder</code>: 删除非空文件夹</p>
 </li>
 </ol>
 <ol>
-<li><code>cat file</code> 显示file这个文件的内容</li>
+<li><code>cat file</code>: 显示file这个文件的内容</li>
 </ol>
 <h2 id="ssh连接远程服务器文件上传下载"><a href="#ssh连接远程服务器文件上传下载" class="headerlink" title="ssh连接远程服务器文件上传下载"></a>ssh连接远程服务器文件上传下载</h2><ol>
 <li><p>从服务器上下载文件</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">scp username@servername:/path/filename /Users/mac/Desktop（本地目录）</span><br><span class="line">// /path/filename是服务器上文件的地址，/Users/mac/Desktop是本地文件存放地址</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">scp -P 端口号 username@servername:/path/filename /Users/mac/Desktop（本地目录）</span><br><span class="line">// /path/filename是服务器上文件的地址，/Users/mac/Desktop是本地文件存放地址</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>上传本地文件到服务器</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp /path/filename username@servername:/path</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp /path/filename -p 端口号 username@servername:/path</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 <p><em>目前只用到了这几条基础的指令，以后用到了再更新^_^~</em></p>
@@ -460,13 +460,18 @@ height:50vh;
             <p>原文作者：<a href="tanchris.cc">大白兔奶糖</a>
             </p><p>link：<a href="tanchris.cc/2019/05/09/Linux文件操作基本指令/">tanchris.cc/2019/05/09/Linux文件操作基本指令/</a>
             </p><p>publish：<a href="tanchris.cc/2019/05/09/Linux文件操作基本指令/">May 9th 2019, 12:00:00 am</a>
-            </p><p>update：<a href="tanchris.cc/2019/05/09/Linux文件操作基本指令/">May 11th 2019, 3:24:45 pm</a>
+            </p><p>update：<a href="tanchris.cc/2019/05/09/Linux文件操作基本指令/">May 11th 2019, 6:56:07 pm</a>
             </p><p>copyright：Copyrights © 2019 Tan Chris. All Rights Reserved.</p>
         </div>
     
     <!-- paginator  -->
     <ul class="post-paginator">
         <li class="next">
+            
+                <div class="nextSlogan">Next Post</div>
+                <a href="/2019/05/11/I-O输入输出重导/" title="I/O输入输出重导">
+                    <div class="nextTitle">I/O输入输出重导</div>
+                </a>
             
         </li>
         <li class="previous">
@@ -728,9 +733,33 @@ top:50vh;
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 11
+        Total : 13
         </div>
         <!-- search  -->
         
@@ -750,6 +779,16 @@ top:50vh;
     
     
         <li class="archive-post-item">
+            <span class="archive-post-date">05/11</span><a class="archive-post-title" href="/2019/05/11/关于Hexo博客文章中图片引用问题/">关于Hexo博客文章中图片引用问题</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/11</span><a class="archive-post-title" href="/2019/05/11/I-O输入输出重导/">I/O输入输出重导</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
             <span class="archive-post-date">05/09</span><a class="archive-post-title" href="/2019/05/09/Linux文件操作基本指令/">ssh连接远程服务器的基本操作指令</a>
         </li>
     
@@ -760,12 +799,12 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">05/05</span><a class="archive-post-title" href="/2019/05/05/2018-09-16-python基础语法的副本/">Pyhton 基础语法</a>
+            <span class="archive-post-date">05/05</span><a class="archive-post-title" href="/2019/05/05/python基础语法的副本/">Pyhton 基础语法</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">05/05</span><a class="archive-post-title" href="/2019/05/05/2019-05-05-Computer Networks/">Computer Networks : A System Approach</a>
+            <span class="archive-post-date">05/05</span><a class="archive-post-title" href="/2019/05/05/Computer Networks/">Computer Networks : A System Approach</a>
         </li>
     
     
@@ -779,37 +818,37 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">12/17</span><a class="archive-post-title" href="/2018/12/17/2018-12-17-二叉树遍历的非递归实现/">二叉树遍历的非递归实现</a>
+            <span class="archive-post-date">12/17</span><a class="archive-post-title" href="/2018/12/17/二叉树遍历的非递归实现/">二叉树遍历的非递归实现</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">12/08</span><a class="archive-post-title" href="/2018/12/08/2018-12-05-Web前端学习之CSS/">Web前端学习 —— CSS</a>
+            <span class="archive-post-date">12/08</span><a class="archive-post-title" href="/2018/12/08/Web前端学习之CSS/">Web前端学习 —— CSS</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">12/03</span><a class="archive-post-title" href="/2018/12/03/2018-12-03-Web前端学习之HTML/">Web前端学习 —— HTML</a>
+            <span class="archive-post-date">12/03</span><a class="archive-post-title" href="/2018/12/03/Web前端学习之HTML/">Web前端学习 —— HTML</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">12/02</span><a class="archive-post-title" href="/2018/12/02/2018-12-02-《人不彪悍枉少年》/">人不彪悍枉少年</a>
+            <span class="archive-post-date">12/02</span><a class="archive-post-title" href="/2018/12/02/《人不彪悍枉少年》/">人不彪悍枉少年</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">11/19</span><a class="archive-post-title" href="/2018/11/19/2018-11-19-浅学android studio/">浅学android studio</a>
+            <span class="archive-post-date">11/19</span><a class="archive-post-title" href="/2018/11/19/浅学android studio/">浅学android studio</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">10/21</span><a class="archive-post-title" href="/2018/10/21/2018-10-21-符点数的比较/">浮点数的比较</a>
+            <span class="archive-post-date">10/21</span><a class="archive-post-title" href="/2018/10/21/符点数的比较/">浮点数的比较</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/01</span><a class="archive-post-title" href="/2018/07/01/2018-09-02-hello-world/">Markdown</a>
+            <span class="archive-post-date">07/01</span><a class="archive-post-title" href="/2018/07/01/markdown基本使用/">Markdown基本语法</a>
         </li>
     
     </ul></div>
@@ -817,19 +856,7 @@ top:50vh;
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
     
-        <span class="sidebar-tag-name" data-tags="markdown"><span class="iconfont-archer">&#xe606;</span>markdown</span>
-    
-        <span class="sidebar-tag-name" data-tags="算法笔记"><span class="iconfont-archer">&#xe606;</span>算法笔记</span>
-    
-        <span class="sidebar-tag-name" data-tags="C/C++"><span class="iconfont-archer">&#xe606;</span>C/C++</span>
-    
         <span class="sidebar-tag-name" data-tags="Web"><span class="iconfont-archer">&#xe606;</span>Web</span>
-    
-        <span class="sidebar-tag-name" data-tags="HTML"><span class="iconfont-archer">&#xe606;</span>HTML</span>
-    
-        <span class="sidebar-tag-name" data-tags="Android"><span class="iconfont-archer">&#xe606;</span>Android</span>
-    
-        <span class="sidebar-tag-name" data-tags="杂啊"><span class="iconfont-archer">&#xe606;</span>杂啊</span>
     
         <span class="sidebar-tag-name" data-tags="CSS"><span class="iconfont-archer">&#xe606;</span>CSS</span>
     
@@ -837,7 +864,21 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="ssh"><span class="iconfont-archer">&#xe606;</span>ssh</span>
     
+        <span class="sidebar-tag-name" data-tags="HTML"><span class="iconfont-archer">&#xe606;</span>HTML</span>
+    
+        <span class="sidebar-tag-name" data-tags="markdown"><span class="iconfont-archer">&#xe606;</span>markdown</span>
+    
+        <span class="sidebar-tag-name" data-tags="杂啊"><span class="iconfont-archer">&#xe606;</span>杂啊</span>
+    
+        <span class="sidebar-tag-name" data-tags="hexo"><span class="iconfont-archer">&#xe606;</span>hexo</span>
+    
+        <span class="sidebar-tag-name" data-tags="Android"><span class="iconfont-archer">&#xe606;</span>Android</span>
+    
         <span class="sidebar-tag-name" data-tags="数据结构"><span class="iconfont-archer">&#xe606;</span>数据结构</span>
+    
+        <span class="sidebar-tag-name" data-tags="算法笔记"><span class="iconfont-archer">&#xe606;</span>算法笔记</span>
+    
+        <span class="sidebar-tag-name" data-tags="C/C++"><span class="iconfont-archer">&#xe606;</span>C/C++</span>
     
         <span class="sidebar-tag-name" data-tags="计算机网络"><span class="iconfont-archer">&#xe606;</span>计算机网络</span>
     

@@ -22,7 +22,7 @@
     <meta name="description" content>
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>二叉树遍历的非递归实现 · Rabbit</title>
+    <title>I/O输入输出重导 · Rabbit</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -232,7 +232,7 @@
                 <a href="/">Rabbit&#39;s Blog</a>
             </div>
             <div class="post-title">
-                <a href="#" class="post-name">二叉树遍历的非递归实现</a>
+                <a href="#" class="post-name">I/O输入输出重导</a>
             </div>
     </div>
     
@@ -262,7 +262,7 @@ height:50vh;
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            二叉树遍历的非递归实现
+            I/O输入输出重导
             <!-- 404 -->
             
         </h1>
@@ -270,8 +270,6 @@ height:50vh;
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
-            
-                不适合人类阅读，非常水的自我笔记
             
             <!-- 404 -->
             
@@ -283,18 +281,18 @@ height:50vh;
                 
                     <div class="post-intro-tags">
     
-        <a class="post-tag" href="javascript:void(0);" data-tags="数据结构">数据结构</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags="Linux">Linux</a>
     
 </div>
                 
                 
                     <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">487</span>阅读时长: <span class="post-count reading-time">2 min</span></span>
+                        <span>字数统计: <span class="post-count word-count">134</span>阅读时长: <span class="post-count reading-time">1 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
                     <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                    <span class="post-intro-time">2018/12/17</span>
+                    <span class="post-intro-time">2019/05/11</span>
                     
                     <span id="busuanzi_container_page_pv" class="busuanzi-pv">
                         <span class="iconfont-archer">&#xe602;</span>
@@ -418,30 +416,21 @@ height:50vh;
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <h4 id="二叉树中序遍历非递归实现"><a href="#二叉树中序遍历非递归实现" class="headerlink" title="二叉树中序遍历非递归实现"></a>二叉树中序遍历非递归实现</h4><blockquote>
-<p><strong>思路</strong>  </p>
-</blockquote>
-<pre><code>对于任意节点P
-1. 若其左孩子不为空，则将P入栈，并将P的左孩子置为当前的P，再对P进行相同处理。
-2. 若其左孩子为空，取出栈顶元素并出栈，访问该栈顶节点，并将当前的P置为栈顶节点的右孩子。
-3. 知道P为空且栈为空则遍历结束。
-</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * Definition for a binary tree node.</span><br><span class="line"> * struct TreeNode &#123;</span><br><span class="line"> *     int val;</span><br><span class="line"> *     TreeNode *left;</span><br><span class="line"> *     TreeNode *right;</span><br><span class="line"> *     TreeNode(int x) : val(x), left(NULL), right(NULL) &#123;&#125;</span><br><span class="line"> * &#125;;</span><br><span class="line"> */</span><br><span class="line">//中序遍历非递归实现</span><br><span class="line">void InorderTraversal( TreeNode* root )&#123;</span><br><span class="line">    stack&lt;TreeNode*&gt; tmp;</span><br><span class="line"></span><br><span class="line">    while( root!=NULL || !tmp.empty() )&#123;</span><br><span class="line">        while( root != NULL)&#123;</span><br><span class="line">            tmp.push(root);</span><br><span class="line">            root = root-&gt;left;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        if( !tmp.empty() )&#123;</span><br><span class="line">            TreeNode* p = tmp.top();</span><br><span class="line">            printf(&quot;%d&quot;,p-&gt;val);</span><br><span class="line">            tmp.pop();</span><br><span class="line">            root = root-&gt;right;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<hr>
-<h4 id="同样的，下面是二叉树的前序遍历的非递归实现"><a href="#同样的，下面是二叉树的前序遍历的非递归实现" class="headerlink" title="同样的，下面是二叉树的前序遍历的非递归实现"></a>同样的，下面是二叉树的前序遍历的非递归实现</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//前序遍历非递归实现</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">PreorderTraversal</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">    <span class="built_in">stack</span>&lt;TreeNode*&gt; S;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span>(root!=<span class="literal">NULL</span> || !S.empty())&#123;</span><br><span class="line">        <span class="keyword">if</span>(root!=<span class="literal">NULL</span>)&#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%d"</span>,root-&gt;val);</span><br><span class="line">            S.push(root);</span><br><span class="line">            root = root-&gt;left;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(!S.empty())&#123;</span><br><span class="line">            root = S.top()-&gt;right;</span><br><span class="line">            S.pop();</span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<hr>
-<blockquote>
-<p>本以为后序遍历和其他两种差不多…结果是最难的一个😬<br>关键点: 需要判断上一个访问的节点为左节点还是右节点。若为左节点，则要继续访问右节点；若为右节点，则访问当前节点。</p>
-</blockquote>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">postorderTraversal</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">    <span class="built_in">stack</span>&lt;TreeNode*&gt; S;</span><br><span class="line"></span><br><span class="line">    TreeNode* pLastVisit = <span class="literal">NULL</span>;  <span class="comment">//上次访问节点</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span>( root!= <span class="literal">NULL</span>)&#123;</span><br><span class="line">            S.push(root);</span><br><span class="line">            root = root-&gt;left;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (!S.empty())&#123;</span><br><span class="line">        root = S.top();</span><br><span class="line">        S.pop();</span><br><span class="line"></span><br><span class="line">        <span class="comment">//右节点为空或已访问过则访问当前节点，并更新上次访问节点为当前节点</span></span><br><span class="line">        <span class="keyword">if</span>(root-&gt;right == <span class="literal">NULL</span> || pLastVisit == root-&gt;right)&#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%d"</span>,root-&gt;val);</span><br><span class="line">            pLastVisit = root;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//右节点没有被访问过，则当前节点重新入栈并访问右节点</span></span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            S.push(root);</span><br><span class="line">            root = root-&gt;right;</span><br><span class="line">            <span class="keyword">while</span>(root)&#123;</span><br><span class="line">                S.push(root);</span><br><span class="line">                root = root-&gt;left;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;   </span><br><span class="line">    &#125;   </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h2 id="标准输出"><a href="#标准输出" class="headerlink" title="标准输出"></a>标准输出</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls &gt; output.text</span><br></pre></td></tr></table></figure>
+<p>将<code>ls</code>原本要在屏幕上输出的内容输出到<code>output.txt</code>中。<br>如果文件不存在，则创建一个新的文件；若文件存在，则清空文件中的内容，再将数据写入</p>
+<p>如果想以附加的形式将输出重导入文件中，可以使用<code>&lt;&lt;</code><br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls &gt;&gt; output.txt</span><br></pre></td></tr></table></figure></p>
+<h2 id="标准输入"><a href="#标准输入" class="headerlink" title="标准输入"></a>标准输入</h2><p>默认从键盘输入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat</span><br></pre></td></tr></table></figure></p>
+<p>从档案中读取信息，使用<code>&lt;</code>将指定文件设定为程序的标准输入</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat &lt; input.txt</span><br></pre></td></tr></table></figure>
 
     </article>
     <!-- license  -->
     
         <div class="license-wrapper">
             <p>原文作者：<a href="tanchris.cc">大白兔奶糖</a>
-            </p><p>link：<a href="tanchris.cc/2018/12/17/2018-12-17-二叉树遍历的非递归实现/">tanchris.cc/2018/12/17/2018-12-17-二叉树遍历的非递归实现/</a>
-            </p><p>publish：<a href="tanchris.cc/2018/12/17/2018-12-17-二叉树遍历的非递归实现/">December 17th 2018, 12:00:00 am</a>
-            </p><p>update：<a href="tanchris.cc/2018/12/17/2018-12-17-二叉树遍历的非递归实现/">May 8th 2019, 8:24:45 pm</a>
+            </p><p>link：<a href="tanchris.cc/2019/05/11/I-O输入输出重导/">tanchris.cc/2019/05/11/I-O输入输出重导/</a>
+            </p><p>publish：<a href="tanchris.cc/2019/05/11/I-O输入输出重导/">May 11th 2019, 7:39:31 pm</a>
+            </p><p>update：<a href="tanchris.cc/2019/05/11/I-O输入输出重导/">May 11th 2019, 8:36:22 pm</a>
             </p><p>copyright：Copyrights © 2019 Tan Chris. All Rights Reserved.</p>
         </div>
     
@@ -450,16 +439,16 @@ height:50vh;
         <li class="next">
             
                 <div class="nextSlogan">Next Post</div>
-                <a href="/2019/05/05/2019-05-05-Computer Networks/" title="Computer Networks : A System Approach">
-                    <div class="nextTitle">Computer Networks : A System Approach</div>
+                <a href="/2019/05/11/关于Hexo博客文章中图片引用问题/" title="关于Hexo博客文章中图片引用问题">
+                    <div class="nextTitle">关于Hexo博客文章中图片引用问题</div>
                 </a>
             
         </li>
         <li class="previous">
             
                 <div class="prevSlogan">Previous Post</div>
-                <a href="/2018/12/08/2018-12-05-Web前端学习之CSS/" title="Web前端学习 —— CSS">
-                    <div class="prevTitle">Web前端学习 —— CSS</div>
+                <a href="/2019/05/09/Linux文件操作基本指令/" title="ssh连接远程服务器的基本操作指令">
+                    <div class="prevTitle">ssh连接远程服务器的基本操作指令</div>
                 </a>
             
         </li>
@@ -582,7 +571,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#二叉树中序遍历非递归实现"><span class="toc-number">1.</span> <span class="toc-text">二叉树中序遍历非递归实现</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#同样的，下面是二叉树的前序遍历的非递归实现"><span class="toc-number">2.</span> <span class="toc-text">同样的，下面是二叉树的前序遍历的非递归实现</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#标准输出"><span class="toc-number">1.</span> <span class="toc-text">标准输出</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#标准输入"><span class="toc-number">2.</span> <span class="toc-text">标准输入</span></a></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
@@ -714,9 +703,33 @@ top:50vh;
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 11
+        Total : 13
         </div>
         <!-- search  -->
         
@@ -736,6 +749,16 @@ top:50vh;
     
     
         <li class="archive-post-item">
+            <span class="archive-post-date">05/11</span><a class="archive-post-title" href="/2019/05/11/关于Hexo博客文章中图片引用问题/">关于Hexo博客文章中图片引用问题</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/11</span><a class="archive-post-title" href="/2019/05/11/I-O输入输出重导/">I/O输入输出重导</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
             <span class="archive-post-date">05/09</span><a class="archive-post-title" href="/2019/05/09/Linux文件操作基本指令/">ssh连接远程服务器的基本操作指令</a>
         </li>
     
@@ -746,12 +769,12 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">05/05</span><a class="archive-post-title" href="/2019/05/05/2018-09-16-python基础语法的副本/">Pyhton 基础语法</a>
+            <span class="archive-post-date">05/05</span><a class="archive-post-title" href="/2019/05/05/python基础语法的副本/">Pyhton 基础语法</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">05/05</span><a class="archive-post-title" href="/2019/05/05/2019-05-05-Computer Networks/">Computer Networks : A System Approach</a>
+            <span class="archive-post-date">05/05</span><a class="archive-post-title" href="/2019/05/05/Computer Networks/">Computer Networks : A System Approach</a>
         </li>
     
     
@@ -765,37 +788,37 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">12/17</span><a class="archive-post-title" href="/2018/12/17/2018-12-17-二叉树遍历的非递归实现/">二叉树遍历的非递归实现</a>
+            <span class="archive-post-date">12/17</span><a class="archive-post-title" href="/2018/12/17/二叉树遍历的非递归实现/">二叉树遍历的非递归实现</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">12/08</span><a class="archive-post-title" href="/2018/12/08/2018-12-05-Web前端学习之CSS/">Web前端学习 —— CSS</a>
+            <span class="archive-post-date">12/08</span><a class="archive-post-title" href="/2018/12/08/Web前端学习之CSS/">Web前端学习 —— CSS</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">12/03</span><a class="archive-post-title" href="/2018/12/03/2018-12-03-Web前端学习之HTML/">Web前端学习 —— HTML</a>
+            <span class="archive-post-date">12/03</span><a class="archive-post-title" href="/2018/12/03/Web前端学习之HTML/">Web前端学习 —— HTML</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">12/02</span><a class="archive-post-title" href="/2018/12/02/2018-12-02-《人不彪悍枉少年》/">人不彪悍枉少年</a>
+            <span class="archive-post-date">12/02</span><a class="archive-post-title" href="/2018/12/02/《人不彪悍枉少年》/">人不彪悍枉少年</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">11/19</span><a class="archive-post-title" href="/2018/11/19/2018-11-19-浅学android studio/">浅学android studio</a>
+            <span class="archive-post-date">11/19</span><a class="archive-post-title" href="/2018/11/19/浅学android studio/">浅学android studio</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">10/21</span><a class="archive-post-title" href="/2018/10/21/2018-10-21-符点数的比较/">浮点数的比较</a>
+            <span class="archive-post-date">10/21</span><a class="archive-post-title" href="/2018/10/21/符点数的比较/">浮点数的比较</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/01</span><a class="archive-post-title" href="/2018/07/01/2018-09-02-hello-world/">Markdown</a>
+            <span class="archive-post-date">07/01</span><a class="archive-post-title" href="/2018/07/01/markdown基本使用/">Markdown基本语法</a>
         </li>
     
     </ul></div>
@@ -803,19 +826,7 @@ top:50vh;
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
     
-        <span class="sidebar-tag-name" data-tags="markdown"><span class="iconfont-archer">&#xe606;</span>markdown</span>
-    
-        <span class="sidebar-tag-name" data-tags="算法笔记"><span class="iconfont-archer">&#xe606;</span>算法笔记</span>
-    
-        <span class="sidebar-tag-name" data-tags="C/C++"><span class="iconfont-archer">&#xe606;</span>C/C++</span>
-    
         <span class="sidebar-tag-name" data-tags="Web"><span class="iconfont-archer">&#xe606;</span>Web</span>
-    
-        <span class="sidebar-tag-name" data-tags="HTML"><span class="iconfont-archer">&#xe606;</span>HTML</span>
-    
-        <span class="sidebar-tag-name" data-tags="Android"><span class="iconfont-archer">&#xe606;</span>Android</span>
-    
-        <span class="sidebar-tag-name" data-tags="杂啊"><span class="iconfont-archer">&#xe606;</span>杂啊</span>
     
         <span class="sidebar-tag-name" data-tags="CSS"><span class="iconfont-archer">&#xe606;</span>CSS</span>
     
@@ -823,7 +834,21 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="ssh"><span class="iconfont-archer">&#xe606;</span>ssh</span>
     
+        <span class="sidebar-tag-name" data-tags="HTML"><span class="iconfont-archer">&#xe606;</span>HTML</span>
+    
+        <span class="sidebar-tag-name" data-tags="markdown"><span class="iconfont-archer">&#xe606;</span>markdown</span>
+    
+        <span class="sidebar-tag-name" data-tags="杂啊"><span class="iconfont-archer">&#xe606;</span>杂啊</span>
+    
+        <span class="sidebar-tag-name" data-tags="hexo"><span class="iconfont-archer">&#xe606;</span>hexo</span>
+    
+        <span class="sidebar-tag-name" data-tags="Android"><span class="iconfont-archer">&#xe606;</span>Android</span>
+    
         <span class="sidebar-tag-name" data-tags="数据结构"><span class="iconfont-archer">&#xe606;</span>数据结构</span>
+    
+        <span class="sidebar-tag-name" data-tags="算法笔记"><span class="iconfont-archer">&#xe606;</span>算法笔记</span>
+    
+        <span class="sidebar-tag-name" data-tags="C/C++"><span class="iconfont-archer">&#xe606;</span>C/C++</span>
     
         <span class="sidebar-tag-name" data-tags="计算机网络"><span class="iconfont-archer">&#xe606;</span>计算机网络</span>
     

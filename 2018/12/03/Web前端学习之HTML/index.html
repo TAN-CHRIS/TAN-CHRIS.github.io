@@ -22,7 +22,7 @@
     <meta name="description" content>
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Pyhton 基础语法 · Rabbit</title>
+    <title>Web前端学习 —— HTML · Rabbit</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -232,7 +232,7 @@
                 <a href="/">Rabbit&#39;s Blog</a>
             </div>
             <div class="post-title">
-                <a href="#" class="post-name">Pyhton 基础语法</a>
+                <a href="#" class="post-name">Web前端学习 —— HTML</a>
             </div>
     </div>
     
@@ -262,7 +262,7 @@ height:50vh;
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            Pyhton 基础语法
+            Web前端学习 —— HTML
             <!-- 404 -->
             
         </h1>
@@ -270,6 +270,8 @@ height:50vh;
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
+            
+                不适合人类阅读，非常水的自我笔记
             
             <!-- 404 -->
             
@@ -279,14 +281,22 @@ height:50vh;
             <div class="post-intros">
                 <!-- 文章页标签  -->
                 
+                    <div class="post-intro-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="Web">Web</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="HTML">HTML</a>
+    
+</div>
+                
                 
                     <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">826</span>阅读时长: <span class="post-count reading-time">3 min</span></span>
+                        <span>字数统计: <span class="post-count word-count">1k</span>阅读时长: <span class="post-count reading-time">4 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
                     <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                    <span class="post-intro-time">2019/05/05</span>
+                    <span class="post-intro-time">2018/12/03</span>
                     
                     <span id="busuanzi_container_page_pv" class="busuanzi-pv">
                         <span class="iconfont-archer">&#xe602;</span>
@@ -410,76 +420,98 @@ height:50vh;
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <hr>
-<h2 id="Python-编程基础"><a href="#Python-编程基础" class="headerlink" title="Python 编程基础"></a>Python 编程基础</h2><ul>
-<li><h4 id="Python-程序基本结构"><a href="#Python-程序基本结构" class="headerlink" title="Python 程序基本结构"></a>Python 程序基本结构</h4><ul>
-<li><h5 id="缩进表示代码块"><a href="#缩进表示代码块" class="headerlink" title="缩进表示代码块"></a>缩进表示代码块</h5>同级代码块的缩进量应保持相同</li>
-<li><h5 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h5>单行注释用“#”表示，“#”之后的内容不会被执行。单行注释可以单独占一行，也可以放在语句末尾。<br>多行注释用三个英文的单引号“’’’”或双引号“””””作为注释的开始和结束符号。   </li>
-<li><h5 id="语句续航"><a href="#语句续航" class="headerlink" title="语句续航"></a>语句续航</h5><em>使用续航符号，将一条语句写在多行之中。</em><br>方法一：使用“\”符号<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> x&lt;<span class="number">100</span>\</span><br><span class="line">      <span class="keyword">and</span> x&gt;<span class="number">10</span>:</span><br><span class="line">      y = x*<span class="number">5</span> - <span class="number">1</span></span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">      y = <span class="number">0</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>方法二：使用括号时，括号中的内容可分多行书写，括号中的空白和换行符都会被忽略。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(x&lt;<span class="number">100</span>    <span class="comment">#这是多行语句中的注释</span></span><br><span class="line">      <span class="keyword">and</span> x&gt;<span class="number">10</span>):</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">      y=<span class="number">0</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li><h5 id="语句分隔"><a href="#语句分隔" class="headerlink" title="语句分隔"></a>语句分隔</h5><p>python 使用分号分隔语句，从而使多条语句写在一行。例如：<br><code>print(100);print(2+3)</code><br>如果冒号之后只有一条语句，可将语句写在冒号之后。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> x&lt;<span class="number">100</span> <span class="keyword">and</span> x&gt;<span class="number">10</span>: y=x*<span class="number">5</span><span class="number">-1</span></span><br><span class="line"><span class="keyword">else</span>: y=<span class="number">0</span>; print(<span class="string">'x&gt;=10 或 x&lt;=10'</span>)</span><br></pre></td></tr></table></figure>
-</li>
-<li><h5 id="关键字大小写"><a href="#关键字大小写" class="headerlink" title="关键字大小写"></a>关键字大小写</h5><p>Python 的关键字和各种自定义标识符在使用时区分大小写（如if,while,for等）。</p>
-</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li><h4 id="输入输出"><a href="#输入输出" class="headerlink" title="输入输出"></a>输入输出</h4><ul>
-<li><h5 id="输入：input"><a href="#输入：input" class="headerlink" title="输入：input()"></a>输入：input()</h5>input函数将用户输入以字符串返回。用户按【Enter】键完成输入，之前的字符均作为输入内容。<br>如果需要输入整数或小数，用int或float函数进行转换。</li>
-<li><h5 id="输出：print"><a href="#输出：print" class="headerlink" title="输出：print()"></a>输出：print()</h5><p>print函数基本格式：<br><code>print([obj1,...],[,sep=&#39;&#39;][,end=&#39;\n&#39;][,file.sys.stdout])</code>    </p>
-<ul>
-<li><p><strong>省略所有参数</strong><br>无参数时，print函数输出一个空行</p>
-</li>
-<li><p><strong>输出一个或多个对象</strong></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;print(<span class="number">123</span>)                    <span class="comment">#输出一个对象</span></span><br><span class="line"><span class="number">123</span></span><br><span class="line">&gt;&gt;&gt;print(<span class="number">123</span>,<span class="string">'abc'</span>,<span class="number">45</span>,<span class="string">'book'</span>)    <span class="comment">#输出多个对象</span></span><br><span class="line"><span class="number">123</span>abc45book</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>指定输出分隔符</strong><br>默认分隔符为空格，可用sep参数指定分隔符</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;print(<span class="number">123</span>,<span class="string">'abc'</span>,<span class="number">45</span>,<span class="string">'book'</span>,sep=<span class="string">'/'</span>)</span><br><span class="line"><span class="number">123</span>/abc/<span class="number">45</span>/book</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>指定输出结尾符号</strong><br>默认以回车换行符号作为输出结尾符号。可用end参数输出结尾符号。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;print(<span class="string">'price'</span>);print(<span class="number">100</span>)</span><br><span class="line">price</span><br><span class="line"><span class="number">100</span></span><br><span class="line">&gt;&gt;&gt;print(<span class="string">'price'</span>,end=<span class="string">'='</span>);print(<span class="number">100</span>)</span><br><span class="line">price=<span class="number">100</span></span><br><span class="line">```    </span><br><span class="line"></span><br><span class="line">- **输出到文件**    </span><br><span class="line">默认输出到标准输出流（即sys.stdout）。可用file参数输出到特定文件。例如：</span><br><span class="line">```python</span><br><span class="line">&gt;&gt;&gt;file1=open(<span class="string">'data.txt'</span>,<span class="string">'w'</span>)              <span class="comment">#打开文件</span></span><br><span class="line">&gt;&gt;&gt;print(<span class="number">123</span>,<span class="string">'abc'</span>,<span class="number">45</span>,<span class="string">'book'</span>,file=file1)   <span class="comment">#用file参数指定输出文件</span></span><br><span class="line">&gt;&gt;&gt;file1.close()                           <span class="comment">#关闭文件</span></span><br><span class="line">&gt;&gt;&gt;print(open(<span class="string">'data.txt'</span>.read()))          <span class="comment">#输出从文件中读出的内容</span></span><br><span class="line"><span class="number">123</span> abc <span class="number">45</span> book</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><h4 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h4><ul>
-<li>int 整数</li>
-<li>double 浮点数</li>
-<li>str 字符串</li>
-<li>list 数组</li>
-<li>dict 字典</li>
-<li>tuple 元组</li>
-<li>集合</li>
-</ul>
-</li>
-</ul>
+        <h3 id="前端构成"><a href="#前端构成" class="headerlink" title="前端构成"></a>前端构成</h3><ol>
+<li><h4 id="结构：HTML"><a href="#结构：HTML" class="headerlink" title="结构：HTML"></a><a href="HTML">结构：HTML</a></h4>➡️ <strong>描述页面结构</strong></li>
+<li><h4 id="样式：CSS"><a href="#样式：CSS" class="headerlink" title="样式：CSS "></a><a href="2018-12-05-Web前端学习之CSS.markdown">样式：CSS </a></h4>➡️ <strong>美化页面</strong></li>
+<li><h4 id="行为：JavaScript"><a href="#行为：JavaScript" class="headerlink" title="行为：JavaScript"></a><a href="2018-12-05-Web前端学习之CSS.markdown">行为：JavaScript</a></h4>➡️ <strong>用户交互，提升用户体验</strong></li>
+</ol>
 <hr>
-<h2 id="程序流程控制"><a href="#程序流程控制" class="headerlink" title="程序流程控制"></a>程序流程控制</h2><ul>
-<li><h4 id="if-语句"><a href="#if-语句" class="headerlink" title="if 语句"></a>if 语句</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(...):</span><br><span class="line">      ...</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">      ...</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(...):</span><br><span class="line">    ...</span><br><span class="line"><span class="keyword">elif</span>(...):</span><br><span class="line">    ...</span><br><span class="line">.</span><br><span class="line">.</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    ...</span><br></pre></td></tr></table></figure>
+<h3 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h3><blockquote>
+<p>超文本标记语言</p>
+</blockquote>
 <ul>
-<li><h4 id="for-循环"><a href="#for-循环" class="headerlink" title="for 循环"></a>for 循环</h4></li>
-<li><h4 id="while-循环"><a href="#while-循环" class="headerlink" title="while 循环"></a>while 循环</h4></li>
+<li><h4 id="标签、元素、属性"><a href="#标签、元素、属性" class="headerlink" title="标签、元素、属性"></a>标签、元素、属性</h4><p>  由尖括号包围 &amp; 通常成对出现/单独出现<br>  例如：<br>  <code>&lt;title&gt;...&lt;/title&gt;</code><br>  <code>&lt;img.../&gt;</code></p>
+<p>  <strong>缩进</strong><br>  父元素、子元素 、同级的兄弟元素<br>  HTML DOM树 （DOM：Document Object Model）   </p>
+<p>  一个标签可能有多个属性,属性先后顺序无关,例如：<br>  <code>&lt;img src=&quot;logo.jpg&quot; alt=&quot;站标&quot; /&gt;</code>  </p>
+</li>
 </ul>
-<hr>
-<h2 id="函数与模块"><a href="#函数与模块" class="headerlink" title="函数与模块"></a>函数与模块</h2><ul>
-<li><h4 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h4></li>
-<li><h4 id="变量作用域"><a href="#变量作用域" class="headerlink" title="变量作用域"></a>变量作用域</h4></li>
-<li><h4 id="模块"><a href="#模块" class="headerlink" title="模块"></a>模块</h4><ul>
-<li><h5 id="random模块"><a href="#random模块" class="headerlink" title="random模块"></a>random模块</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">random()                用于生成一个<span class="number">0</span>到<span class="number">1</span>的随机浮点数：<span class="number">0</span>&lt;=n&lt;<span class="number">1.0</span></span><br><span class="line">uniform(a,b)            用于生成一个指定范围内的随机浮点数：a&lt;n&lt;b</span><br><span class="line">randint(a,b)            用于生成啊a到b之间的一个随机整数（a&lt;=b）</span><br><span class="line">randrange([start], stop[,step])    用于生成一个指定基数递增的集合中随机取一个整数</span><br><span class="line">choice(sequence)        从序列中随机取一个元素，其中，sequence表示一个有序类型，例如：list,string,tuple</span><br></pre></td></tr></table></figure>
+<ul>
+<li><h4 id="HTML文件结构"><a href="#HTML文件结构" class="headerlink" title="HTML文件结构"></a>HTML文件结构</h4><ul>
+<li>文件结构<br>  .htm 或.html文件<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">title</span>&gt;</span>   <span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">     ...</span><br><span class="line">    <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
-<li><h4 id="模块包"><a href="#模块包" class="headerlink" title="模块包"></a>模块包</h4></li>
+<li><h4 id="HTML标签"><a href="#HTML标签" class="headerlink" title="HTML标签"></a>HTML标签</h4><ul>
+<li><p><strong>标题标签</strong> <code>&lt;h1&gt; 一级标题&lt;/h1&gt;</code></p>
+</li>
+<li><p><strong>段落p</strong><br>  <code>&lt;p&gt;每个段落自动换行&lt;/p&gt;</code><br>  <strong>段落内部文字忽略连续空格，也不会显示空行，且不会换行</strong></p>
+<ul>
+<li>段内换行 <code>&lt;br /&gt;</code></li>
+<li>空格字符 <code>&amp;nbsp;</code></li>
+<li>预留格式 <code>&lt;pre&gt;&lt;/pre&gt;</code></li>
+<li>行内组合 <code>&lt;span&gt;&lt;/span&gt;</code></li>
+<li>水平线 &nbsp;&nbsp;<code>&lt;hr /&gt;</code></li>
+<li>注释标签 <code>&lt;!--注释内容 --&gt;</code></li>
+</ul>
+</li>
+<li><p><strong>超链接标签a</strong><br><code>&lt; a href = &quot;网址&quot;&gt; 文字或图片 &lt;/a&gt;</code></p>
+<ul>
+<li>链接到本站其他网页  <code>&lt;a href= &quot;news.html&quot; &gt;新闻 &lt;/a&gt;</code></li>
+<li>链接到其他网站      <code>&lt;a href= &quot;http://www.baidu.com&quot;&gt; 百度&lt;/a&gt;</code></li>
+<li>虚拟超链接   <code>&lt;a href= &quot;#&quot;&gt; 板块二&lt;/a&gt;</code></li>
+</ul>
+</li>
+<li><p><strong>图像标签img</strong></p>
+<ul>
+<li><p>图像格式：<br>JPG：有损压缩，色彩丰富<br>GIF：简单动画，背景透明<br>PNG：无损压缩</p>
+</li>
+<li><p>插入图像<br><code>&lt;img src=&quot;w3school.gif&quot; alt=&quot;w3c&quot; /&gt;</code><br>src属性：路径+文件名(绝对路径/相对路径)<br>alt:图片打开失败时的替换文字或图片</p>
+</li>
+</ul>
+</li>
+<li><p><strong>区域标签div</strong>   </p>
+<p>确定一个单独的区域，结合CSS样式，对每个区域进行排版布局<br>id属性【唯一】<br>align属性<br>sub  上角标     </p>
+</li>
+<li><p><strong>列表</strong></p>
+<ul>
+<li>无序列表  <code>&lt;ul&gt;&lt;/ul&gt;</code>    列表项 <code>&lt;li&gt;&lt;/li&gt;</code></li>
+<li>有序列表  <code>&lt;ol&gt;&lt;/ol&gt;</code>   列表项 &nbsp;<code>&lt;li&gt;&lt;/li&gt;</code></li>
+</ul>
+</li>
+<li><p><strong>表格 table tr td</strong></p>
+  <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">align</span>=<span class="string">"center"</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- table&gt;tr*2&gt;td拓展之后变为 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">table</span> <span class="attr">border</span>=<span class="string">"1"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">td</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">td</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">table</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><strong>表头单元格</strong>  <code>&lt;th&gt;&lt;/th&gt;</code></p>
+</li>
+<li><p><strong>表单与表单元素</strong>   </p>
+<p><strong>表单：</strong> 是一个区域，采集用户信息  </p>
+<pre><code><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">"数据处理网页"</span>&gt;</span>  <span class="comment">&lt;!-- action表示提交的URL地址 --&gt;</span></span><br><span class="line">  表单元素</span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</code></pre><p><strong>表单元素：</strong> 文本框、按钮、单选、复选、下拉列表、文本框</p>
+<ul>
+<li>文本框、密码框input <code>&lt;input type=&quot;text|password&quot; name=&quot;表单元素名&quot; /&gt;</code></li>
+<li><p>按钮：提交按钮、重置按钮   </p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span>&gt;</span></span><br><span class="line">    姓名：</span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span>  <span class="attr">value</span>=<span class="string">""</span>    <span class="attr">name</span>=<span class="string">"myName"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">value</span>=<span class="string">"提交"</span> <span class="attr">name</span>=<span class="string">"submit"</span> /&gt;</span> <span class="comment">&lt;!-- 提交按钮 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"reset"</span>  <span class="attr">value</span>=<span class="string">"重置"</span> /&gt;</span> <span class="comment">&lt;!-- 重置按钮 --&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>单选框、复选框</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"radio|checkbox"</span> <span class="attr">name</span>=<span class="string">"名称"</span> <span class="attr">value</span>=<span class="string">"值"</span> <span class="attr">checked</span>=<span class="string">"checked"</span>/&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- radio为单选框，checkbox为复选框 --&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- value属性表示要提交到后端的数据 --&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- name属性表示当前这一项它的名字 --&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- checked属性表示当前这一项是否被默认选中 --&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>下拉列表框select option    </p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">select</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">option</span>&gt;</span>选项1<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">option</span> <span class="attr">selected</span>=<span class="string">"selected"</span>&gt;</span>选项2<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>文本域Testarea    </p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">textarea</span> <span class="attr">name</span>=<span class="string">"name"</span> <span class="attr">rows</span>=<span class="string">"8"</span> <span class="attr">cols</span>=<span class="string">"80"</span>&gt;</span>文本<span class="tag">&lt;/<span class="name">textarea</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- rows规定行数，cols规定每行字数 --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 在textarea区域内写下的文字会默认出现在编辑区域内 --&gt;</span></span><br></pre></td></tr></table></figure>
+<p><img src="/img/in-post/html_form.png" alt="表单元素"></p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><h4 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h4><ul>
+<li><strong><code>&lt;meta&gt;</code>标签</strong>    </li>
+</ul>
+<p><code>&lt;meta&gt;</code>元素可提供有关页面的元信息（meta-information），比如针对搜索引擎和更新频度的描述和关键词。<br>  <code>&lt;meta&gt;</code> 标签位于文档的头部，不包含任何内容。<code>&lt;meta&gt;</code>标签的属性定义了与文档相关联的名称/值对。    </p>
+<h5 id="详细用法"><a href="#详细用法" class="headerlink" title="详细用法"></a><a href="http://www.w3school.com.cn/tags/tag_meta.asp" target="_blank" rel="noopener">详细用法</a></h5></li>
 </ul>
 
     </article>
@@ -487,9 +519,9 @@ height:50vh;
     
         <div class="license-wrapper">
             <p>原文作者：<a href="tanchris.cc">大白兔奶糖</a>
-            </p><p>link：<a href="tanchris.cc/2019/05/05/2018-09-16-python基础语法的副本/">tanchris.cc/2019/05/05/2018-09-16-python基础语法的副本/</a>
-            </p><p>publish：<a href="tanchris.cc/2019/05/05/2018-09-16-python基础语法的副本/">May 5th 2019, 3:22:57 pm</a>
-            </p><p>update：<a href="tanchris.cc/2019/05/05/2018-09-16-python基础语法的副本/">May 8th 2019, 8:25:10 pm</a>
+            </p><p>link：<a href="tanchris.cc/2018/12/03/Web前端学习之HTML/">tanchris.cc/2018/12/03/Web前端学习之HTML/</a>
+            </p><p>publish：<a href="tanchris.cc/2018/12/03/Web前端学习之HTML/">December 3rd 2018, 12:00:00 am</a>
+            </p><p>update：<a href="tanchris.cc/2018/12/03/Web前端学习之HTML/">May 8th 2019, 11:15:03 pm</a>
             </p><p>copyright：Copyrights © 2019 Tan Chris. All Rights Reserved.</p>
         </div>
     
@@ -498,16 +530,16 @@ height:50vh;
         <li class="next">
             
                 <div class="nextSlogan">Next Post</div>
-                <a href="/2019/05/08/hello-world/" title="转战Hexo">
-                    <div class="nextTitle">转战Hexo</div>
+                <a href="/2018/12/08/Web前端学习之CSS/" title="Web前端学习 —— CSS">
+                    <div class="nextTitle">Web前端学习 —— CSS</div>
                 </a>
             
         </li>
         <li class="previous">
             
                 <div class="prevSlogan">Previous Post</div>
-                <a href="/2019/05/05/2019-05-05-Computer Networks/" title="Computer Networks : A System Approach">
-                    <div class="prevTitle">Computer Networks : A System Approach</div>
+                <a href="/2018/12/02/《人不彪悍枉少年》/" title="人不彪悍枉少年">
+                    <div class="prevTitle">人不彪悍枉少年</div>
                 </a>
             
         </li>
@@ -630,7 +662,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Python-编程基础"><span class="toc-number">1.</span> <span class="toc-text">Python 编程基础</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Python-程序基本结构"><span class="toc-number">1.0.1.</span> <span class="toc-text">Python 程序基本结构</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#缩进表示代码块"><span class="toc-number">1.0.1.1.</span> <span class="toc-text">缩进表示代码块</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#注释"><span class="toc-number">1.0.1.2.</span> <span class="toc-text">注释</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#语句续航"><span class="toc-number">1.0.1.3.</span> <span class="toc-text">语句续航</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#语句分隔"><span class="toc-number">1.0.1.4.</span> <span class="toc-text">语句分隔</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#关键字大小写"><span class="toc-number">1.0.1.5.</span> <span class="toc-text">关键字大小写</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#输入输出"><span class="toc-number">1.0.2.</span> <span class="toc-text">输入输出</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#输入：input"><span class="toc-number">1.0.2.1.</span> <span class="toc-text">输入：input()</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#输出：print"><span class="toc-number">1.0.2.2.</span> <span class="toc-text">输出：print()</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#数据类型"><span class="toc-number">1.0.3.</span> <span class="toc-text">数据类型</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#程序流程控制"><span class="toc-number">2.</span> <span class="toc-text">程序流程控制</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#if-语句"><span class="toc-number">2.0.1.</span> <span class="toc-text">if 语句</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#for-循环"><span class="toc-number">2.0.2.</span> <span class="toc-text">for 循环</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#while-循环"><span class="toc-number">2.0.3.</span> <span class="toc-text">while 循环</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#函数与模块"><span class="toc-number">3.</span> <span class="toc-text">函数与模块</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#函数"><span class="toc-number">3.0.1.</span> <span class="toc-text">函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#变量作用域"><span class="toc-number">3.0.2.</span> <span class="toc-text">变量作用域</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#模块"><span class="toc-number">3.0.3.</span> <span class="toc-text">模块</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#random模块"><span class="toc-number">3.0.3.1.</span> <span class="toc-text">random模块</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#模块包"><span class="toc-number">3.0.4.</span> <span class="toc-text">模块包</span></a></li></ol></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#前端构成"><span class="toc-number">1.</span> <span class="toc-text">前端构成</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#结构：HTML"><span class="toc-number">1.1.</span> <span class="toc-text">结构：HTML</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#样式：CSS"><span class="toc-number">1.2.</span> <span class="toc-text">样式：CSS </span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#行为：JavaScript"><span class="toc-number">1.3.</span> <span class="toc-text">行为：JavaScript</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HTML"><span class="toc-number">2.</span> <span class="toc-text">HTML</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#标签、元素、属性"><span class="toc-number">2.1.</span> <span class="toc-text">标签、元素、属性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#HTML文件结构"><span class="toc-number">2.2.</span> <span class="toc-text">HTML文件结构</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#HTML标签"><span class="toc-number">2.3.</span> <span class="toc-text">HTML标签</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#补充"><span class="toc-number">2.4.</span> <span class="toc-text">补充</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#详细用法"><span class="toc-number">2.4.1.</span> <span class="toc-text">详细用法</span></a></li></ol></li></ol></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
@@ -762,9 +794,33 @@ top:50vh;
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 11
+        Total : 13
         </div>
         <!-- search  -->
         
@@ -784,6 +840,16 @@ top:50vh;
     
     
         <li class="archive-post-item">
+            <span class="archive-post-date">05/11</span><a class="archive-post-title" href="/2019/05/11/关于Hexo博客文章中图片引用问题/">关于Hexo博客文章中图片引用问题</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/11</span><a class="archive-post-title" href="/2019/05/11/I-O输入输出重导/">I/O输入输出重导</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
             <span class="archive-post-date">05/09</span><a class="archive-post-title" href="/2019/05/09/Linux文件操作基本指令/">ssh连接远程服务器的基本操作指令</a>
         </li>
     
@@ -794,12 +860,12 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">05/05</span><a class="archive-post-title" href="/2019/05/05/2018-09-16-python基础语法的副本/">Pyhton 基础语法</a>
+            <span class="archive-post-date">05/05</span><a class="archive-post-title" href="/2019/05/05/python基础语法的副本/">Pyhton 基础语法</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">05/05</span><a class="archive-post-title" href="/2019/05/05/2019-05-05-Computer Networks/">Computer Networks : A System Approach</a>
+            <span class="archive-post-date">05/05</span><a class="archive-post-title" href="/2019/05/05/Computer Networks/">Computer Networks : A System Approach</a>
         </li>
     
     
@@ -813,37 +879,37 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">12/17</span><a class="archive-post-title" href="/2018/12/17/2018-12-17-二叉树遍历的非递归实现/">二叉树遍历的非递归实现</a>
+            <span class="archive-post-date">12/17</span><a class="archive-post-title" href="/2018/12/17/二叉树遍历的非递归实现/">二叉树遍历的非递归实现</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">12/08</span><a class="archive-post-title" href="/2018/12/08/2018-12-05-Web前端学习之CSS/">Web前端学习 —— CSS</a>
+            <span class="archive-post-date">12/08</span><a class="archive-post-title" href="/2018/12/08/Web前端学习之CSS/">Web前端学习 —— CSS</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">12/03</span><a class="archive-post-title" href="/2018/12/03/2018-12-03-Web前端学习之HTML/">Web前端学习 —— HTML</a>
+            <span class="archive-post-date">12/03</span><a class="archive-post-title" href="/2018/12/03/Web前端学习之HTML/">Web前端学习 —— HTML</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">12/02</span><a class="archive-post-title" href="/2018/12/02/2018-12-02-《人不彪悍枉少年》/">人不彪悍枉少年</a>
+            <span class="archive-post-date">12/02</span><a class="archive-post-title" href="/2018/12/02/《人不彪悍枉少年》/">人不彪悍枉少年</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">11/19</span><a class="archive-post-title" href="/2018/11/19/2018-11-19-浅学android studio/">浅学android studio</a>
+            <span class="archive-post-date">11/19</span><a class="archive-post-title" href="/2018/11/19/浅学android studio/">浅学android studio</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">10/21</span><a class="archive-post-title" href="/2018/10/21/2018-10-21-符点数的比较/">浮点数的比较</a>
+            <span class="archive-post-date">10/21</span><a class="archive-post-title" href="/2018/10/21/符点数的比较/">浮点数的比较</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/01</span><a class="archive-post-title" href="/2018/07/01/2018-09-02-hello-world/">Markdown</a>
+            <span class="archive-post-date">07/01</span><a class="archive-post-title" href="/2018/07/01/markdown基本使用/">Markdown基本语法</a>
         </li>
     
     </ul></div>
@@ -851,19 +917,7 @@ top:50vh;
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
     
-        <span class="sidebar-tag-name" data-tags="markdown"><span class="iconfont-archer">&#xe606;</span>markdown</span>
-    
-        <span class="sidebar-tag-name" data-tags="算法笔记"><span class="iconfont-archer">&#xe606;</span>算法笔记</span>
-    
-        <span class="sidebar-tag-name" data-tags="C/C++"><span class="iconfont-archer">&#xe606;</span>C/C++</span>
-    
         <span class="sidebar-tag-name" data-tags="Web"><span class="iconfont-archer">&#xe606;</span>Web</span>
-    
-        <span class="sidebar-tag-name" data-tags="HTML"><span class="iconfont-archer">&#xe606;</span>HTML</span>
-    
-        <span class="sidebar-tag-name" data-tags="Android"><span class="iconfont-archer">&#xe606;</span>Android</span>
-    
-        <span class="sidebar-tag-name" data-tags="杂啊"><span class="iconfont-archer">&#xe606;</span>杂啊</span>
     
         <span class="sidebar-tag-name" data-tags="CSS"><span class="iconfont-archer">&#xe606;</span>CSS</span>
     
@@ -871,7 +925,21 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="ssh"><span class="iconfont-archer">&#xe606;</span>ssh</span>
     
+        <span class="sidebar-tag-name" data-tags="HTML"><span class="iconfont-archer">&#xe606;</span>HTML</span>
+    
+        <span class="sidebar-tag-name" data-tags="markdown"><span class="iconfont-archer">&#xe606;</span>markdown</span>
+    
+        <span class="sidebar-tag-name" data-tags="杂啊"><span class="iconfont-archer">&#xe606;</span>杂啊</span>
+    
+        <span class="sidebar-tag-name" data-tags="hexo"><span class="iconfont-archer">&#xe606;</span>hexo</span>
+    
+        <span class="sidebar-tag-name" data-tags="Android"><span class="iconfont-archer">&#xe606;</span>Android</span>
+    
         <span class="sidebar-tag-name" data-tags="数据结构"><span class="iconfont-archer">&#xe606;</span>数据结构</span>
+    
+        <span class="sidebar-tag-name" data-tags="算法笔记"><span class="iconfont-archer">&#xe606;</span>算法笔记</span>
+    
+        <span class="sidebar-tag-name" data-tags="C/C++"><span class="iconfont-archer">&#xe606;</span>C/C++</span>
     
         <span class="sidebar-tag-name" data-tags="计算机网络"><span class="iconfont-archer">&#xe606;</span>计算机网络</span>
     

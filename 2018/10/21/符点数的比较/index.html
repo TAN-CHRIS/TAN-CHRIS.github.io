@@ -22,7 +22,7 @@
     <meta name="description" content>
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Web前端学习 —— CSS · Rabbit</title>
+    <title>浮点数的比较 · Rabbit</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -232,7 +232,7 @@
                 <a href="/">Rabbit&#39;s Blog</a>
             </div>
             <div class="post-title">
-                <a href="#" class="post-name">Web前端学习 —— CSS</a>
+                <a href="#" class="post-name">浮点数的比较</a>
             </div>
     </div>
     
@@ -262,7 +262,7 @@ height:50vh;
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            Web前端学习 —— CSS
+            浮点数的比较
             <!-- 404 -->
             
         </h1>
@@ -270,8 +270,6 @@ height:50vh;
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
-            
-                不适合人类阅读，非常水的自我笔记
             
             <!-- 404 -->
             
@@ -283,20 +281,20 @@ height:50vh;
                 
                     <div class="post-intro-tags">
     
-        <a class="post-tag" href="javascript:void(0);" data-tags="Web">Web</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags="算法笔记">算法笔记</a>
     
-        <a class="post-tag" href="javascript:void(0);" data-tags="CSS">CSS</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags="C/C++">C/C++</a>
     
 </div>
                 
                 
                     <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">701</span>阅读时长: <span class="post-count reading-time">2 min</span></span>
+                        <span>字数统计: <span class="post-count word-count">377</span>阅读时长: <span class="post-count reading-time">1 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
                     <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                    <span class="post-intro-time">2018/12/08</span>
+                    <span class="post-intro-time">2018/10/21</span>
                     
                     <span id="busuanzi_container_page_pv" class="busuanzi-pv">
                         <span class="iconfont-archer">&#xe602;</span>
@@ -420,126 +418,35 @@ height:50vh;
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <h3 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h3><blockquote>
-<p>Cascading Style Sheets 层叠式样式表</p>
+        <h3 id="浮点数的比较"><a href="#浮点数的比较" class="headerlink" title="浮点数的比较"></a>浮点数的比较</h3><blockquote>
+<p>由于计算机中采用有限位的二进制编码，因此浮点数在计算机中的存储并不总是精确的.所以进行比较时需要 <strong><em>引入一个极小数eps来对误差进行修正</em></strong></p>
 </blockquote>
-<ul>
-<li><h4 id="CSS-语法"><a href="#CSS-语法" class="headerlink" title="CSS 语法"></a>CSS 语法</h4><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">p</span>&#123; <span class="comment">/*&lt;‑‑‑‑­­‑‑‑‑ 选择器*/</span></span><br><span class="line">  <span class="attribute">font-size</span>:<span class="number">12px</span>;   <span class="comment">/*字号*/</span></span><br><span class="line">  <span class="attribute">color</span>:blue;       <span class="comment">/*文字颜色*/</span></span><br><span class="line">  <span class="attribute">font-weight</span>:bold; <span class="comment">/*加粗*/</span></span><br><span class="line">  ...</span><br><span class="line">  <span class="comment">/*属性名：属性值*/</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
 <hr>
-<ul>
-<li><h4 id="CSS-添加方法"><a href="#CSS-添加方法" class="headerlink" title="CSS 添加方法"></a>CSS 添加方法</h4><ol>
-<li><strong>行内样式</strong><br> <code>&lt;p style&gt; 行内有效</code></li>
-<li><strong>内嵌样式</strong><br> <code>用&lt;style&gt;标签添加在&lt;head&gt;标签中,这个html文件中有效</code></li>
-<li><p><strong>单独文件</strong><br> 外部式样式表文件 style.css<br> 在网页文件中添加样式的方法 ==&gt; 在head标签中添加 <code>link rel=&quot;stylesheet&quot; href=&quot;css/style.css&quot;</code>   </p>
-<blockquote>
-<p> 在sublime中可用link:css来进行扩展</p>
-</blockquote>
-</li>
-<li><p><strong>优先级</strong></p>
-<ul>
-<li>多重样式可以层叠，可以覆盖</li>
-<li>样式优先级按照 <strong>就近原则</strong> :<br><strong>行内样式&gt;内嵌样式&gt;链接样式&gt;</strong> 浏览器默认样式</li>
-</ul>
-</li>
-</ol>
-</li>
-</ul>
-<hr>
-<ul>
-<li><h4 id="CSS选择器"><a href="#CSS选择器" class="headerlink" title="CSS选择器"></a>CSS选择器</h4><ul>
-<li><p><strong>标签选择器</strong><br>  选择器名字为标签名字<br>  <br>  </p>
-</li>
-<li><p><strong>类别选择器</strong><br>  选择器名为“.”开头，引用是用class指定类别</p>
-  <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;style type="text/css"</span><br><span class="line"><span class="selector-tag">p</span>    &#123;<span class="attribute">font-size</span>: <span class="number">12px</span>;&#125;</span><br><span class="line"><span class="selector-class">.one</span> &#123;<span class="attribute">font-size</span>: <span class="number">18px</span>;&#125;</span><br><span class="line"><span class="selector-class">.two</span> &#123;<span class="attribute">font-size</span>: <span class="number">24px</span>&#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
-  <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"one"</span>&gt;</span>类别1<span class="tag">&lt;/<span class="name">p</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"two"</span>&gt;</span>类别2<span class="tag">&lt;/<span class="name">p</span>&gt;</span>    </span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>  <br></p>
-</li>
-<li><p><strong>ID 选择器</strong><br>选择器名为 “# “ 号开头,使用时用id属性引用</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;style type="text/css"</span><br><span class="line"><span class="selector-id">#one</span> &#123;<span class="attribute">font-size</span>: <span class="number">18px</span>;&#125;</span><br><span class="line"><span class="selector-id">#two</span> &#123;<span class="attribute">font-size</span>: <span class="number">24px</span>&#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">id</span>=<span class="string">"one"</span>&gt;</span>类别1<span class="tag">&lt;/<span class="name">p</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">id</span>=<span class="string">"two"</span>&gt;</span>类别2<span class="tag">&lt;/<span class="name">p</span>&gt;</span>    </span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p><br><br><strong>class选择器与id选择器的区别：</strong><br>ID选择器要在当前html文件中唯一的使用一次<br>而class选择器定义的样式可以多次被引用,作用于多个网页元素上面<br><br></p>
-</li>
-<li><p><strong>嵌套声明</strong>  <code>p span</code></p>
-</li>
-<li><strong>集体声明</strong>  <code>h1,p</code></li>
-<li><strong>全局声明</strong>  <code>*</code></li>
-</ul>
-</li>
-</ul>
-<hr>
-<ul>
-<li><h4 id="CSS样式"><a href="#CSS样式" class="headerlink" title="CSS样式"></a>CSS样式</h4><h4 id="1-文本与文字样式"><a href="#1-文本与文字样式" class="headerlink" title="1. 文本与文字样式"></a>1. <strong>文本与文字样式</strong></h4><ul>
-<li><p><strong>单位</strong></p>
-<ul>
-<li>px : 像素</li>
-<li>em : 1em — 一个字符<br>   自动适应用户所使用的字体</li>
-<li>%  : 百分比</li>
-</ul>
-</li>
-<li><p><strong>颜色</strong>         </p>
-</li>
-<li><p><strong>文本样式</strong></p>
-<ul>
-<li>文本垂直居中: 设置  height = line-height     </li>
-<li>文本水平居中: 设置 <code>text-align: center;</code>    </li>
-<li>去掉超链接下划线: 使用 text-decoration: none;</li>
-</ul>
-<p><br></p>
-</li>
-</ul>
-<h4 id="2-背景与超链接"><a href="#2-背景与超链接" class="headerlink" title="2. 背景与超链接"></a>2. <strong>背景与超链接</strong></h4><ul>
-<li><p><strong>background</strong>:   </p>
-<ul>
-<li>background-color</li>
-<li>background-image</li>
-<li>background-repeat</li>
-</ul>
-</li>
-<li><p><strong>链接的四种状态</strong>     </p>
-<ul>
-<li>a:link      普通的、未被访问的链接   </li>
-<li>a:visited   被访问过的链接     </li>
-<li>a:hover     鼠标指针位于链接上方悬停    </li>
-<li>a:active    链接被点击到的时刻   </li>
-</ul>
-<p>鼠标悬停放大字体  a:hover{font-size:120%;}<br> <br></p>
-</li>
-</ul>
-<h4 id="3-列表和表格"><a href="#3-列表和表格" class="headerlink" title="3. 列表和表格"></a>3. <strong>列表和表格</strong></h4><ul>
-<li><p><strong>列表</strong>    </p>
-<blockquote>
-<p>有序列表ol和无序列表ul公用样式   </p>
-</blockquote>
-<ul>
-<li>list-style    所有用于列表的属性设置于一个声明中</li>
-<li>list-style-image    为列表项标志设置图像  (url”…”)</li>
-<li>list-style-position   标志的位置 inside/outside    </li>
-<li>list-style-type     <a href="/img/post_img/list-style-type.png">标志的类型</a></li>
-</ul>
-</li>
-<li><p><strong>表格</strong></p>
-<ul>
-<li>border    边框    </li>
-<li>width     宽   </li>
-<li>height    高     </li>
-<li>border-collapse   把表格显示为单线条边框   </li>
-<li><a href="http://www.w3school.com.cn/cssref/selector_nth-child.asp" target="_blank" rel="noopener">奇偶选择器</a>可用来设置奇偶行颜色     <code>:nth-child(odd/even)</code></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
+<h4 id="等于运算符（"><a href="#等于运算符（" class="headerlink" title="等于运算符（==)"></a>等于运算符（==)</h4><p>如果一个数落在了[b-eps,b+eps]的区间内，判定 a==b 成立。<br>一般eps取 10^-8 。因此可以将eps定义为常量1e-8:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const double eps = 1e-8;</span><br></pre></td></tr></table></figure>
+<p>为了使比较更加方便，把比较操作写成宏定义的形式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#define Equ(a,b)((fabs((a)-(b)))&lt;(eps))</span><br></pre></td></tr></table></figure>
+<p>将a和b相减，如果差的绝对值小于极小量，就返回true</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio&gt;</span><br><span class="line">#include &lt;math.h&gt;</span><br><span class="line">const double eps = 1e-8;</span><br><span class="line">#define Equ(a,b)((fabs((a)-(b)))&lt;(eps))</span><br><span class="line">int main&#123;</span><br><span class="line">    double db = 1.23;</span><br><span class="line">    if(Eue(db, 1.23)&#123;</span><br><span class="line">        printf(&quot;true&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    else&#123;</span><br><span class="line">        printf(&quot;false&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="大于运算符（-gt-）"><a href="#大于运算符（-gt-）" class="headerlink" title="大于运算符（&gt;）"></a>大于运算符（&gt;）</h4><p>一个数a要大于b，那么就必须使a-b大于eps</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#define Equ(a,b)((fabs((a)-(b)))&gt;(eps))</span><br></pre></td></tr></table></figure>
+<h4 id="小于运算符（-lt-）"><a href="#小于运算符（-lt-）" class="headerlink" title="小于运算符（&lt;）"></a>小于运算符（&lt;）</h4><p>一个数a要小于b，那么就必须使a-b小于-eps</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#define Equ(a,b)((fabs((a)-(b)))&lt;(-eps))</span><br></pre></td></tr></table></figure>
+<h4 id="大于等于运算符（-gt-）"><a href="#大于等于运算符（-gt-）" class="headerlink" title="大于等于运算符（&gt;=）"></a>大于等于运算符（&gt;=）</h4><p>大于b-eps的数都应认为是大于等于b的</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#define Equ(a,b)((fabs((a)-(b)))&gt;(-eps))</span><br></pre></td></tr></table></figure>
+<h4 id="小于等于运算符（-lt-）"><a href="#小于等于运算符（-lt-）" class="headerlink" title="小于等于运算符（&lt;=）"></a>小于等于运算符（&lt;=）</h4><p>小于b+eps的数都应认为是小于于等于b的</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#define Equ(a,b)((fabs((a)-(b)))&lt;(eps))</span><br></pre></td></tr></table></figure>
+<h4 id="圆周率π"><a href="#圆周率π" class="headerlink" title="圆周率π"></a>圆周率π</h4><p>由cos(π) = -1 可得 π = arccos(-1)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const double Pi = acos(-1.0)</span><br></pre></td></tr></table></figure>
 
     </article>
     <!-- license  -->
     
         <div class="license-wrapper">
             <p>原文作者：<a href="tanchris.cc">大白兔奶糖</a>
-            </p><p>link：<a href="tanchris.cc/2018/12/08/2018-12-05-Web前端学习之CSS/">tanchris.cc/2018/12/08/2018-12-05-Web前端学习之CSS/</a>
-            </p><p>publish：<a href="tanchris.cc/2018/12/08/2018-12-05-Web前端学习之CSS/">December 8th 2018, 12:00:00 am</a>
-            </p><p>update：<a href="tanchris.cc/2018/12/08/2018-12-05-Web前端学习之CSS/">May 8th 2019, 8:13:15 pm</a>
+            </p><p>link：<a href="tanchris.cc/2018/10/21/符点数的比较/">tanchris.cc/2018/10/21/符点数的比较/</a>
+            </p><p>publish：<a href="tanchris.cc/2018/10/21/符点数的比较/">October 21st 2018, 12:00:00 am</a>
+            </p><p>update：<a href="tanchris.cc/2018/10/21/符点数的比较/">May 11th 2019, 7:58:37 pm</a>
             </p><p>copyright：Copyrights © 2019 Tan Chris. All Rights Reserved.</p>
         </div>
     
@@ -548,16 +455,16 @@ height:50vh;
         <li class="next">
             
                 <div class="nextSlogan">Next Post</div>
-                <a href="/2018/12/17/2018-12-17-二叉树遍历的非递归实现/" title="二叉树遍历的非递归实现">
-                    <div class="nextTitle">二叉树遍历的非递归实现</div>
+                <a href="/2018/11/19/浅学android studio/" title="浅学android studio">
+                    <div class="nextTitle">浅学android studio</div>
                 </a>
             
         </li>
         <li class="previous">
             
                 <div class="prevSlogan">Previous Post</div>
-                <a href="/2018/12/03/2018-12-03-Web前端学习之HTML/" title="Web前端学习 —— HTML">
-                    <div class="prevTitle">Web前端学习 —— HTML</div>
+                <a href="/2018/07/01/markdown基本使用/" title="Markdown基本语法">
+                    <div class="prevTitle">Markdown基本语法</div>
                 </a>
             
         </li>
@@ -680,7 +587,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#CSS"><span class="toc-number">1.</span> <span class="toc-text">CSS</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#CSS-语法"><span class="toc-number">1.1.</span> <span class="toc-text">CSS 语法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#CSS-添加方法"><span class="toc-number">1.2.</span> <span class="toc-text">CSS 添加方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#CSS选择器"><span class="toc-number">1.3.</span> <span class="toc-text">CSS选择器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#CSS样式"><span class="toc-number">1.4.</span> <span class="toc-text">CSS样式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-文本与文字样式"><span class="toc-number">1.5.</span> <span class="toc-text">1. 文本与文字样式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-背景与超链接"><span class="toc-number">1.6.</span> <span class="toc-text">2. 背景与超链接</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-列表和表格"><span class="toc-number">1.7.</span> <span class="toc-text">3. 列表和表格</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#浮点数的比较"><span class="toc-number">1.</span> <span class="toc-text">浮点数的比较</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#等于运算符（"><span class="toc-number">1.1.</span> <span class="toc-text">等于运算符（==)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#大于运算符（-gt-）"><span class="toc-number">1.2.</span> <span class="toc-text">大于运算符（&gt;）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#小于运算符（-lt-）"><span class="toc-number">1.3.</span> <span class="toc-text">小于运算符（&lt;）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#大于等于运算符（-gt-）"><span class="toc-number">1.4.</span> <span class="toc-text">大于等于运算符（&gt;=）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#小于等于运算符（-lt-）"><span class="toc-number">1.5.</span> <span class="toc-text">小于等于运算符（&lt;=）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#圆周率π"><span class="toc-number">1.6.</span> <span class="toc-text">圆周率π</span></a></li></ol></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
@@ -812,9 +719,33 @@ top:50vh;
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 11
+        Total : 13
         </div>
         <!-- search  -->
         
@@ -834,6 +765,16 @@ top:50vh;
     
     
         <li class="archive-post-item">
+            <span class="archive-post-date">05/11</span><a class="archive-post-title" href="/2019/05/11/关于Hexo博客文章中图片引用问题/">关于Hexo博客文章中图片引用问题</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/11</span><a class="archive-post-title" href="/2019/05/11/I-O输入输出重导/">I/O输入输出重导</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
             <span class="archive-post-date">05/09</span><a class="archive-post-title" href="/2019/05/09/Linux文件操作基本指令/">ssh连接远程服务器的基本操作指令</a>
         </li>
     
@@ -844,12 +785,12 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">05/05</span><a class="archive-post-title" href="/2019/05/05/2018-09-16-python基础语法的副本/">Pyhton 基础语法</a>
+            <span class="archive-post-date">05/05</span><a class="archive-post-title" href="/2019/05/05/python基础语法的副本/">Pyhton 基础语法</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">05/05</span><a class="archive-post-title" href="/2019/05/05/2019-05-05-Computer Networks/">Computer Networks : A System Approach</a>
+            <span class="archive-post-date">05/05</span><a class="archive-post-title" href="/2019/05/05/Computer Networks/">Computer Networks : A System Approach</a>
         </li>
     
     
@@ -863,37 +804,37 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">12/17</span><a class="archive-post-title" href="/2018/12/17/2018-12-17-二叉树遍历的非递归实现/">二叉树遍历的非递归实现</a>
+            <span class="archive-post-date">12/17</span><a class="archive-post-title" href="/2018/12/17/二叉树遍历的非递归实现/">二叉树遍历的非递归实现</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">12/08</span><a class="archive-post-title" href="/2018/12/08/2018-12-05-Web前端学习之CSS/">Web前端学习 —— CSS</a>
+            <span class="archive-post-date">12/08</span><a class="archive-post-title" href="/2018/12/08/Web前端学习之CSS/">Web前端学习 —— CSS</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">12/03</span><a class="archive-post-title" href="/2018/12/03/2018-12-03-Web前端学习之HTML/">Web前端学习 —— HTML</a>
+            <span class="archive-post-date">12/03</span><a class="archive-post-title" href="/2018/12/03/Web前端学习之HTML/">Web前端学习 —— HTML</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">12/02</span><a class="archive-post-title" href="/2018/12/02/2018-12-02-《人不彪悍枉少年》/">人不彪悍枉少年</a>
+            <span class="archive-post-date">12/02</span><a class="archive-post-title" href="/2018/12/02/《人不彪悍枉少年》/">人不彪悍枉少年</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">11/19</span><a class="archive-post-title" href="/2018/11/19/2018-11-19-浅学android studio/">浅学android studio</a>
+            <span class="archive-post-date">11/19</span><a class="archive-post-title" href="/2018/11/19/浅学android studio/">浅学android studio</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">10/21</span><a class="archive-post-title" href="/2018/10/21/2018-10-21-符点数的比较/">浮点数的比较</a>
+            <span class="archive-post-date">10/21</span><a class="archive-post-title" href="/2018/10/21/符点数的比较/">浮点数的比较</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/01</span><a class="archive-post-title" href="/2018/07/01/2018-09-02-hello-world/">Markdown</a>
+            <span class="archive-post-date">07/01</span><a class="archive-post-title" href="/2018/07/01/markdown基本使用/">Markdown基本语法</a>
         </li>
     
     </ul></div>
@@ -901,19 +842,7 @@ top:50vh;
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
     
-        <span class="sidebar-tag-name" data-tags="markdown"><span class="iconfont-archer">&#xe606;</span>markdown</span>
-    
-        <span class="sidebar-tag-name" data-tags="算法笔记"><span class="iconfont-archer">&#xe606;</span>算法笔记</span>
-    
-        <span class="sidebar-tag-name" data-tags="C/C++"><span class="iconfont-archer">&#xe606;</span>C/C++</span>
-    
         <span class="sidebar-tag-name" data-tags="Web"><span class="iconfont-archer">&#xe606;</span>Web</span>
-    
-        <span class="sidebar-tag-name" data-tags="HTML"><span class="iconfont-archer">&#xe606;</span>HTML</span>
-    
-        <span class="sidebar-tag-name" data-tags="Android"><span class="iconfont-archer">&#xe606;</span>Android</span>
-    
-        <span class="sidebar-tag-name" data-tags="杂啊"><span class="iconfont-archer">&#xe606;</span>杂啊</span>
     
         <span class="sidebar-tag-name" data-tags="CSS"><span class="iconfont-archer">&#xe606;</span>CSS</span>
     
@@ -921,7 +850,21 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="ssh"><span class="iconfont-archer">&#xe606;</span>ssh</span>
     
+        <span class="sidebar-tag-name" data-tags="HTML"><span class="iconfont-archer">&#xe606;</span>HTML</span>
+    
+        <span class="sidebar-tag-name" data-tags="markdown"><span class="iconfont-archer">&#xe606;</span>markdown</span>
+    
+        <span class="sidebar-tag-name" data-tags="杂啊"><span class="iconfont-archer">&#xe606;</span>杂啊</span>
+    
+        <span class="sidebar-tag-name" data-tags="hexo"><span class="iconfont-archer">&#xe606;</span>hexo</span>
+    
+        <span class="sidebar-tag-name" data-tags="Android"><span class="iconfont-archer">&#xe606;</span>Android</span>
+    
         <span class="sidebar-tag-name" data-tags="数据结构"><span class="iconfont-archer">&#xe606;</span>数据结构</span>
+    
+        <span class="sidebar-tag-name" data-tags="算法笔记"><span class="iconfont-archer">&#xe606;</span>算法笔记</span>
+    
+        <span class="sidebar-tag-name" data-tags="C/C++"><span class="iconfont-archer">&#xe606;</span>C/C++</span>
     
         <span class="sidebar-tag-name" data-tags="计算机网络"><span class="iconfont-archer">&#xe606;</span>计算机网络</span>
     
