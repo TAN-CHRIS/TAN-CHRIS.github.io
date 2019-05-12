@@ -194,21 +194,6 @@
     <link rel="preload" as="font" href="/font/Oswald-Regular.ttf" crossorigin>
     <link rel="preload" as="font" href="https://at.alicdn.com/t/font_327081_1dta1rlogw17zaor.woff" crossorigin>
     
-        <!-- algolia -->
-        <script>
-            
-            var hits = JSON.parse('{"per_page":10}')
-            var labels = JSON.parse('{"input_placeholder":"Search for Posts","hits_empty":"We did not find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}')
-
-            var algolia = {
-                applicationID: '7B3IRWC2H5',
-                apiKey: '40a286b3be16875ac1ae559d6727f29d',
-                indexName: 'myindex',
-                hits: hits,
-                labels: labels
-            }
-        </script>
-    
     <!-- fancybox -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" defer></script>
     <!-- 百度统计  -->
@@ -256,7 +241,7 @@ height:50vh;
     <!-- 404页  -->
             
     <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/intro/post-bg.jpg)"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/post-bg-unix-linux.jpg)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
@@ -289,7 +274,7 @@ height:50vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">303</span>阅读时长: <span class="post-count reading-time">1 min</span></span>
+                        <span>字数统计: <span class="post-count word-count">399</span>阅读时长: <span class="post-count reading-time">1 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -422,7 +407,7 @@ height:50vh;
 <p>写编译原理作业时使用的是<code>Ubuntu</code>系统，所以整理了一些关于文件操作的基本指令给自己查阅</p>
 </blockquote>
 <h2 id="远程连接服务器"><a href="#远程连接服务器" class="headerlink" title="远程连接服务器"></a>远程连接服务器</h2><p>首先需要使用助教所给的<code>ubuntu</code>环境进行作业的提交以及测试，需要通过<code>Mac terminal</code>连接到远程服务器</p>
-<p>在终端输入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -p 端口号 服务器用户名@ip    // ssh -p 7878 your_account@140.114.88.201</span><br></pre></td></tr></table></figure></p>
+<p>在终端输入<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -p 端口号 服务器用户名@ip    // ssh -p 7878 your_account@140.114.88.201</span><br></pre></td></tr></table></figure></p>
 <p>然后输入服务器的账户密码即可连接成功</p>
 <h2 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h2><ol>
 <li><p><code>cd</code></p>
@@ -445,22 +430,29 @@ height:50vh;
 </ol>
 <h2 id="ssh连接远程服务器文件上传下载"><a href="#ssh连接远程服务器文件上传下载" class="headerlink" title="ssh连接远程服务器文件上传下载"></a>ssh连接远程服务器文件上传下载</h2><ol>
 <li><p>从服务器上下载文件</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">scp -P 端口号 username@servername:/path/filename /Users/mac/Desktop（本地目录）</span><br><span class="line">// /path/filename是服务器上文件的地址，/Users/mac/Desktop是本地文件存放地址</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp -P 端口号 username@servername:/path/filename /Users/mac/Desktop（本地目录）</span><br></pre></td></tr></table></figure>
+<p><code>/path/filename</code>是服务器上文件的地址，<code>/Users/mac/Desktop</code>是本地文件存放地址<br>这里遇到一个问题，网上的命令大都是</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp username@servername:/path/filename /Users/mac/Desktop（本地目录）</span><br></pre></td></tr></table></figure>
+<p>但是我这样用的时候就会出现<img src="/2019/05/09/Linux文件操作基本指令/connection-error.png" title="连接错误">必须加上<code>-P 端口号</code>才能正常连接</p>
 </li>
 <li><p>上传本地文件到服务器</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp /path/filename -p 端口号 username@servername:/path</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp /path/filename -P 端口号 username@servername:/path</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>文件夹操作<br>文件夹操作与文件类似，只要在命令里加上<code>-r</code>参数即可</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp -r -P 端口号 username@servername:/path/filename /Users/mac/Desktop</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
+<hr>
 <p><em>目前只用到了这几条基础的指令，以后用到了再更新^_^~</em></p>
 
     </article>
     <!-- license  -->
     
         <div class="license-wrapper">
-            <p>原文作者：<a href="tanchris.cc">大白兔奶糖</a>
-            </p><p>link：<a href="tanchris.cc/2019/05/09/Linux文件操作基本指令/">tanchris.cc/2019/05/09/Linux文件操作基本指令/</a>
-            </p><p>publish：<a href="tanchris.cc/2019/05/09/Linux文件操作基本指令/">May 9th 2019, 12:00:00 am</a>
-            </p><p>update：<a href="tanchris.cc/2019/05/09/Linux文件操作基本指令/">May 11th 2019, 6:56:07 pm</a>
+            <p>原文作者：<a href>大白兔奶糖</a>
+            </p><p>link：<a href>tanchris.cc/2019/05/09/Linux文件操作基本指令/</a>
+            </p><p>publish：<a href>May 9th 2019, 12:00:00 am</a>
+            </p><p>update：<a href>May 12th 2019, 5:37:28 pm</a>
             </p><p>copyright：Copyrights © 2019 Tan Chris. All Rights Reserved.</p>
         </div>
     
@@ -759,17 +751,11 @@ top:50vh;
     
     
     
-    
-    
     <div class="total-and-search">
         <div class="total-archive">
         Total : 13
         </div>
         <!-- search  -->
-        
-            <div class="site-search popup-trigger">
-                <span class="iconfont-archer search-icon">&#xe627;</span>
-            </div>
         
     </div>
     
@@ -862,11 +848,11 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="Linux"><span class="iconfont-archer">&#xe606;</span>Linux</span>
     
+        <span class="sidebar-tag-name" data-tags="ssh"><span class="iconfont-archer">&#xe606;</span>ssh</span>
+    
         <span class="sidebar-tag-name" data-tags="Web"><span class="iconfont-archer">&#xe606;</span>Web</span>
     
         <span class="sidebar-tag-name" data-tags="CSS"><span class="iconfont-archer">&#xe606;</span>CSS</span>
-    
-        <span class="sidebar-tag-name" data-tags="ssh"><span class="iconfont-archer">&#xe606;</span>ssh</span>
     
         <span class="sidebar-tag-name" data-tags="HTML"><span class="iconfont-archer">&#xe606;</span>HTML</span>
     
@@ -942,29 +928,6 @@ jsonContent:
     </script>
     <script src="/scripts/main.js"></script>
     <!-- algolia -->
-    
-        <div class="site-search">
-  <div class="algolia-popup popup">
-    <div class="algolia-search">
-      <div class="algolia-search-input-icon">
-        <i class="fa fa-search"></i>
-      </div>
-      <div class="algolia-search-input" id="algolia-search-input"></div>
-    </div>
-
-    <div class="algolia-results">
-      <div id="algolia-stats"></div>
-      <div id="algolia-hits"></div>
-      <div id="algolia-pagination" class="algolia-pagination"></div>
-    </div>
-
-    <span class="popup-btn-close">
-      <i class="iconfont-archer">&#xe609;</i>
-    </span>
-  </div>
-</div>
-        <script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.8.0/dist/instantsearch.min.js" defer></script>
-        <script src="/scripts/search.js" defer></script>
     
     <!-- busuanzi  -->
     
