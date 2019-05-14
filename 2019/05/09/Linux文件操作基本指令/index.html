@@ -289,7 +289,7 @@ height:50vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">447</span>阅读时长: <span class="post-count reading-time">1 min</span></span>
+                        <span>字数统计: <span class="post-count word-count">446</span>阅读时长: <span class="post-count reading-time">1 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -443,20 +443,13 @@ height:50vh;
 <ol>
 <li><code>cat file</code>: 显示file这个文件的内容</li>
 </ol>
-<h2 id="ssh连接远程服务器文件上传下载"><a href="#ssh连接远程服务器文件上传下载" class="headerlink" title="ssh连接远程服务器文件上传下载"></a>ssh连接远程服务器文件上传下载</h2><ol>
-<li><p>从服务器上下载文件</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp -P 端口号 username@servername:/path/filename /Users/mac/Desktop（本地目录）</span><br></pre></td></tr></table></figure>
-<p><code>/path/filename</code>是服务器上文件的地址，<code>/Users/mac/Desktop</code>是本地文件存放地址<br>这里遇到一个问题，网上的命令大都是</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp username@servername:/path/filename /Users/mac/Desktop（本地目录）</span><br></pre></td></tr></table></figure>
-<p>但是我这样用的时候就会出现图中的问题<img src="/2019/05/09/Linux文件操作基本指令/connection-error.png" title="连接错误">必须加上<code>-P 端口号</code>才能正常连接</p>
-</li>
-<li><p>上传本地文件到服务器</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp /path/filename -P 端口号 username@servername:/path</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>文件夹操作<br>文件夹操作与文件类似，只要在命令里加上<code>-r</code>参数即可<br>从远程服务器下载整个文件夹到本地</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp -r -P 端口号 username@servername:/path/filename /Users/mac/Desktop</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
+<h2 id="ssh连接远程服务器文件上传下载"><a href="#ssh连接远程服务器文件上传下载" class="headerlink" title="ssh连接远程服务器文件上传下载"></a>ssh连接远程服务器文件上传下载</h2><h4 id="从服务器上下载文件"><a href="#从服务器上下载文件" class="headerlink" title="从服务器上下载文件"></a>从服务器上下载文件</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp -P 端口号 username@servername:/path/filename /Users/mac/Desktop（本地目录）</span><br></pre></td></tr></table></figure>
+<p>  <code>/path/filename</code>是服务器上文件的地址，<code>/Users/mac/Desktop</code>是本地文件存放地址        </p>
+<p>  这里遇到一个问题，网上的命令大都是<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp username@servername:/path/filename /Users/mac/Desktop（本地目录）</span><br></pre></td></tr></table></figure></p>
+<p>  但是我这样用的时候就会出现图中的问题<img src="/2019/05/09/Linux文件操作基本指令/connection-error.png" title="连接错误">必须加上<code>-P 端口号</code>才能正常连接</p>
+<h4 id="上传本地文件到服务器"><a href="#上传本地文件到服务器" class="headerlink" title="上传本地文件到服务器"></a>上传本地文件到服务器</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp /path/filename -P 端口号 username@servername:/path</span><br></pre></td></tr></table></figure>
+<h4 id="文件夹操作"><a href="#文件夹操作" class="headerlink" title="文件夹操作"></a>文件夹操作</h4><p>文件夹操作与文件类似，只要在命令里加上<code>-r</code>参数即可</p>
+<p>从远程服务器下载整个文件夹到本地<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp -r -P 端口号 username@servername:/path/filename /Users/mac/Desktop</span><br></pre></td></tr></table></figure></p>
 <p>从本地上传文件夹到远程服务器<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp -r -P 端口号 /Users/mac/Desktop username@servername:/path/filename</span><br></pre></td></tr></table></figure></p>
 <hr>
 <p><em>目前只用到了这几条基础的指令，以后用到了再更新^_^~</em></p>
@@ -468,7 +461,7 @@ height:50vh;
             <p>原文作者：<a href>大白兔奶糖</a>
             </p><p>link：<a href>tanchris.cc/2019/05/09/Linux文件操作基本指令/</a>
             </p><p>publish：<a href>May 9th 2019, 12:00:00 am</a>
-            </p><p>update：<a href>May 14th 2019, 9:43:31 pm</a>
+            </p><p>update：<a href>May 14th 2019, 9:46:33 pm</a>
             </p><p>copyright：Copyrights © 2019 Tan Chris. All Rights Reserved.</p>
         </div>
     
@@ -609,7 +602,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#远程连接服务器"><span class="toc-number">1.</span> <span class="toc-text">远程连接服务器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#基本操作"><span class="toc-number">2.</span> <span class="toc-text">基本操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ssh连接远程服务器文件上传下载"><span class="toc-number">3.</span> <span class="toc-text">ssh连接远程服务器文件上传下载</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#远程连接服务器"><span class="toc-number">1.</span> <span class="toc-text">远程连接服务器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#基本操作"><span class="toc-number">2.</span> <span class="toc-text">基本操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ssh连接远程服务器文件上传下载"><span class="toc-number">3.</span> <span class="toc-text">ssh连接远程服务器文件上传下载</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#从服务器上下载文件"><span class="toc-number">3.0.1.</span> <span class="toc-text">从服务器上下载文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#上传本地文件到服务器"><span class="toc-number">3.0.2.</span> <span class="toc-text">上传本地文件到服务器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#文件夹操作"><span class="toc-number">3.0.3.</span> <span class="toc-text">文件夹操作</span></a></li></ol></li></ol></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
@@ -622,12 +615,6 @@ top:50vh;
     <div class="sidebar-content sidebar-content-show-archive">
           <div class="sidebar-panel-archives">
     <!-- 在ejs中将archive按照时间排序 -->
-    
-    
-    
-    
-    
-    
     
     
     
@@ -866,11 +853,11 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="Linux"><span class="iconfont-archer">&#xe606;</span>Linux</span>
     
-        <span class="sidebar-tag-name" data-tags="ssh"><span class="iconfont-archer">&#xe606;</span>ssh</span>
-    
         <span class="sidebar-tag-name" data-tags="Web"><span class="iconfont-archer">&#xe606;</span>Web</span>
     
         <span class="sidebar-tag-name" data-tags="CSS"><span class="iconfont-archer">&#xe606;</span>CSS</span>
+    
+        <span class="sidebar-tag-name" data-tags="ssh"><span class="iconfont-archer">&#xe606;</span>ssh</span>
     
         <span class="sidebar-tag-name" data-tags="HTML"><span class="iconfont-archer">&#xe606;</span>HTML</span>
     
