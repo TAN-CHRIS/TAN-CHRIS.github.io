@@ -4,6 +4,46 @@
   
     
     <entry>
+      <title></title>
+      <link href="/%E8%87%AA%E9%80%82%E5%BA%94%E4%B9%9D%E5%AE%AB%E6%A0%BC%E5%AE%9E%E7%8E%B0/"/>
+      <url>/%E8%87%AA%E9%80%82%E5%BA%94%E4%B9%9D%E5%AE%AB%E6%A0%BC%E5%AE%9E%E7%8E%B0/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>HTML基础</title>
+      <link href="/HTML/"/>
+      <url>/HTML/</url>
+      
+        <content type="html"><![CDATA[<h3 id="表单form"><a href="#表单form" class="headerlink" title="表单form"></a>表单form</h3><ul><li>用户界面: 提供用户输入数据的元件</li><li>处理程序: 客户端程序，在浏览器中执行；服务器处理程序，处理用户提交的数据</li></ul><h4 id="表单定义"><a href="#表单定义" class="headerlink" title="表单定义"></a>表单定义</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">method</span>=<span class="string">"get|post"</span> <span class="attr">action</span>=<span class="string">"处理程序名"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"输入域名类"</span> <span class="attr">name</span>=<span class="string">输入域名</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">--</span> <span class="attr">teaxtarea</span>定义 <span class="attr">--</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">--</span> <span class="attr">select</span>定义 <span class="attr">--</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure><ul><li>get方法<br>将表单对象的名称和值取出来，如果有多个对象用&amp;连接。<br>通过id查询</li><li>post方法<br>加了包裹，以包的形式传递</li></ul><p>get数据量较小，post的保密性较好；get能在地址栏里看见<br>登录用post，查询用get<br>但是post也是明文发送</p><p>表单的submit按钮点击被提交，表单提交成果才会触发action程序</p><h3 id="单选框、复选框、下拉列表"><a href="#单选框、复选框、下拉列表" class="headerlink" title="单选框、复选框、下拉列表"></a>单选框、复选框、下拉列表</h3><p>同一组radio是同一个名称，值和标签不一样</p><h3 id="Frame"><a href="#Frame" class="headerlink" title="Frame"></a>Frame</h3>]]></content>
+      
+      
+      <categories>
+          
+          <category> technology </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> web </tag>
+            
+            <tag> html </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>我们，来日方长</title>
       <link href="/%E6%9D%A5%E6%97%A5%E6%96%B9%E9%95%BF/"/>
       <url>/%E6%9D%A5%E6%97%A5%E6%96%B9%E9%95%BF/</url>
